@@ -10,5 +10,6 @@ public class Ex25AnnoniMain {
 		System.out.println(saram2.getIr());
 		
 		System.out.println("hotfix 작업공간에서 적음");
+		System.out.println("main  작업 공간에서 추가");
 	}
 }
