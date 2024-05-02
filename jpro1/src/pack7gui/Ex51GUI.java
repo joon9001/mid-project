@@ -1,3 +1,5 @@
+// 연습문제 https://cafe.daum.net/flowlife/HqLo/35
+
 package pack7gui;
 
 import java.awt.GridLayout;
@@ -60,27 +62,27 @@ public class Ex51GUI extends JFrame implements ActionListener{
 		add(panel2); // Frame에 등록
 		
 		// 3행
-		JLabel lbl5 = new JLabel("총점 : "); // 나이 입력 필드 추가
-		lbltot =  new JLabel("", 5);
+		JLabel lbl5 = new JLabel("총점 : "); 
+		lbltot =  new JLabel("", 5); // 여기서 lbltot 변수를 선언했으므로 재활용합니다.
 		JLabel lbl6 = new JLabel("평균 : ");
-		txteng = new JTextField("", 5);
 		JLabel lbl7 = new JLabel("평가 : ");
-		txtmath = new JTextField("", 5);
+		txteng = new JTextField("", 5); // 여기서 txteng 변수를 선언했으므로 재활용합니다.
+		txtmath = new JTextField("", 5); // 여기서 txtmath 변수를 선언했으므로 재활용합니다.
 		JPanel panel3 = new JPanel();
-		panel3.add(lbl2);
-		panel3.add(txtkor);
-		panel3.add(lbl3);
-		panel3.add(txteng);
-		panel3.add(lbl4);
-		panel3.add(txtmath);
+		panel3.add(lbl5);
+		panel3.add(lbltot); // lbltot 변수로 수정합니다.
+		panel3.add(lbl6);
+		panel3.add(txteng); // txteng 변수로 수정합니다.
+		panel3.add(lbl7);
+		panel3.add(txtmath); // txtmath 변수로 수정합니다.
 		add(panel3); // Frame에 등록
 		
 		// 4행
 		JButton btnok = new JButton("확인"); // 확인 버튼 추가
 		btnok.addActionListener(this);
-		JPanel panel6 = new JPanel();
-		panel6.add(btnok);
-		add(panel6);
+		JPanel panel4 = new JPanel();
+		panel4.add(btnok);
+		add(panel4);
 		
 		// 5행
 		lblResult = new JLabel("결과 : ", JLabel.CENTER);
@@ -104,68 +106,63 @@ public class Ex51GUI extends JFrame implements ActionListener{
 		int intavg = 0;
 		char grade;
 		
-		try{
-			intkor = Integer.parseInt(txtkor.getText());	
-		} catch (Exception e2) {
-			lblResult.setText("국어 점수는 정수만 가능");
-			txtkor.requestFocus();
-			return;
-		}
-		
-		try{
-			inteng = Integer.parseInt(txteng.getText());	
-		} catch (Exception e2) {
-			lblResult.setText("영어 점수는 정수만 가능");
-			txtkor.requestFocus();
-			return;
-		}
-		try{
-			intmath = Integer.parseInt(txtmath.getText());	
-		} catch (Exception e2) {
-			lblResult.setText("수학 점수는 정수만 가능");
-			txtkor.requestFocus();
-			return;
-		}
-		
+		 try{
+		        intkor = Integer.parseInt(txtkor.getText()); 
+		    } catch (Exception e2) {
+		        lblResult.setText("국어 점수는 정수만 가능");
+		        txtkor.requestFocus();
+		        return;
+		    }
+
+		    try{
+		        inteng = Integer.parseInt(txteng.getText()); 
+		    } catch (Exception e2) {
+		        lblResult.setText("영어 점수는 정수만 가능");
+		        txteng.requestFocus();
+		        return;
+		    }
+		    try{
+		        intmath = Integer.parseInt(txtmath.getText()); 
+		    } catch (Exception e2) {
+		        lblResult.setText("수학 점수는 정수만 가능");
+		        txtmath.requestFocus();
+		        return;
+		    }
 		
 
-        switch (intavg / 10) {
-            case 10:
-            case 9:
-                grade = 'A';
-                break;
-            case 8:
-                grade = 'B';
-                break;
-            case 7:
-                grade = 'C';
-                break;
-            case 6:
-                grade = 'D';
-                break;
-            default:
-                grade = 'F';
-        }
+	    inttot = intkor + inteng + intmath; // 총점 계산
 
-        System.out.println("등급: " + grade);
-			 
+	    intavg = inttot / 3; // 평균 계산
+
+	    switch (intavg / 10) {
+	        case 10:
+	        case 9:
+	            grade = 'A';
+	            break;
+	        case 8:
+	            grade = 'B';
+	            break;
+	        case 7:
+	            grade = 'C';
+	            break;
+	        case 6:
+	            grade = 'D';
+	            break;
+	        default:
+	            grade = 'F';
+	    }
+
+	    lbltot.setText(Integer.toString(inttot)); // 총점 출력
+	    txteng.setText(Integer.toString(intavg)); // 평균 출력
+	    txtmath.setText(String.valueOf(grade)); // 등급 출력
+
+	    System.out.println("등급: " + grade);
 		 }
 	
 	
 
 	
-//		int nai=0;
-//		try{
-//			nai = Integer.parseInt(txtAge.getText());	
-//		} catch (Exception e2) {
-//			lblResult.setText("나이는 정수만 가능");
-//			txtAge.requestFocus();
-//			return;
-//		}
-		
-		// System.out.println(nai);
-		// 라디오 버튼 선택 여부 확인
-		// System.out.println(rdoM.isSelected() + " " + rdoF.isSelected());
+
 
 		
 	
