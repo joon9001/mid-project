@@ -1,3 +1,4 @@
+//GUI 연습문제, 팀원 풀이방식 https://cafe.daum.net/flowlife/HqLo/35
 package pack7gui;
 
 import java.awt.Color;
