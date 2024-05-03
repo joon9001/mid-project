@@ -59,7 +59,7 @@ public class DBTest7_1 extends JFrame implements ActionListener{
 		txtResult3 = new JTextField(5);
 		JLabel price = new JLabel("단가: ");
 		txtResult4 = new JTextField(5);
-		
+		//
 		JButton btnAdd = new JButton("추가");
 		txtFinal.setText(null); //밑에 자료 출력하는 쿼리문 실행 전에 textarea를 깨끗이 비움
 		txtFinal.setText("코드\t상품명\t수량\t단가\t금액\n");

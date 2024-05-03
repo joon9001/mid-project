@@ -43,7 +43,7 @@ public class DBTest3 {
 			return;
 		}
 		
-		
+		//
 		// 2. DB server와 연결
 		try {String Url ="jdbc:mariadb://localhost:3306/mydb";
 			conn = DriverManager.getConnection(Url, "root", "123");

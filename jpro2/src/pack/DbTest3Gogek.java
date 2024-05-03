@@ -23,7 +23,7 @@ public class DbTest3Gogek extends JFrame implements ActionListener{
 	Statement stmt;
 	ResultSet rs;
 	
-	
+	//
 	public DbTest3Gogek() {
 		setTitle("고객 자료");
 		

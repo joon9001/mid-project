@@ -64,7 +64,7 @@ public class DbTest6Prepared {
 				rs.getString(4));
 				
 			}
-			
+			//
 			System.out.println();
 			// 부분 자료 읽기
 			String no = "2"; // 외부에서 받았다고 가정

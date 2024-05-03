@@ -76,7 +76,7 @@ public class DbTest5RecMove extends JFrame implements ActionListener{
 		panel1.add(txtNo);
 		panel1.add(txtName);
 		add("North", panel1);
-		
+		//
 		JPanel panel2 = new JPanel();
 		panel2.add(btnF);
 		panel2.add(btnP);

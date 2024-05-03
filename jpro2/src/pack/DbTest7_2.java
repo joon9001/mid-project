@@ -82,9 +82,8 @@ public class DbTest7_2 extends JFrame implements ActionListener{
 				Class.forName("org.mariadb.jdbc.Driver");
 				String url ="jdbc:mariadb://localhost:3306/mydb";
 				conn = DriverManager.getConnection(url, "root", "123");
-				String sql = "SELECT jikwon_no, jikwon_name, buser_name, gogek_tel, jikwon_jik\r\n"
-						+ "FROM jikwon\r\n"
-						+ "INNER join buser on jikwon.buser_num=buser.buser_no \r\n"
+				String sql = "SELECT jikwon_no, jikwon_name, buser_name, gogek_tel, jikwon_jik "
+						+ "FROM jikwon INNER join buser on jikwon.buser_num=buser.buser_no \r\n"
 						+ "INNER JOIN gogek ON jikwon.jikwon_no=gogek.gogek_damsano "
 						+ "WHERE gogek_name = ?";
 				
@@ -93,7 +92,7 @@ public class DbTest7_2 extends JFrame implements ActionListener{
 				 // 매개변수 설정
 				
 				rs = pstmt.executeQuery();
-				
+				//
 				while (rs.next()) {
 					String imsi = rs.getString(1) + "\t" + 
 							rs.getString(2) + "\t" +  
