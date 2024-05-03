@@ -45,7 +45,7 @@ public class DBTest3 {
 		
 		
 		// 2. DB server와 연결
-		try {String Url ="jdbc:mariadb://localhost:3306/test";
+		try {String Url ="jdbc:mariadb://localhost:3306/mydb";
 			conn = DriverManager.getConnection(Url, "root", "123");
 		} catch (Exception e) {
 			System.out.println("연결 실패 : " + e.getMessage());
@@ -56,7 +56,7 @@ public class DBTest3 {
 		try{
 	    // 부서번호 입력받기
         Scanner scanner = new Scanner(System.in);
-        System.out.print("부서번호를 입력하세요: ");
+        System.out.print("부서번호를 입력하세요(10, 20, 30, 40): ");
         int buser_bunho = scanner.nextInt();
         
         // SQL 쿼리 준비

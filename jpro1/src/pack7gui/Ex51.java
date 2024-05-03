@@ -28,8 +28,8 @@ public class Ex51 extends JFrame implements ActionListener {
 	private JLabel lblphto =new JLabel();
 	private ButtonGroup rbGroup = new ButtonGroup();
 	private JButton btnCalc, btnReset, btnFin;
-	int num1, num2,num3;
-	int x  , y;
+	int num1,num2,num3;
+	int x , y;
 	Image image;
 	
 	double hap;
