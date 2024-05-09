@@ -25,8 +25,9 @@ public class Net4TestServer {
 		
 		Socket socket = null; // TCP/IP 기반의 통신용 클래스 파일
 		try {
-			ss = new ServerSocket(9999); 
+			ss = new ServerSocket(9999);  
 			// 서버 소켓, 9999는 현재 내컴퓨터가 안쓰는 포트번호
+			// 9999번 포트에서 대기하는 ServerSocket을 생성하여 변수 ss에 저장.
 			System.out.println("server start...");
 			socket = ss.accept(); 
 			//서버는 대기중이다가 클라이언트가 접속하면 new socket이 생성되어 socket에 저장됨
@@ -34,6 +35,7 @@ public class Net4TestServer {
 			
 			BufferedReader reader = new BufferedReader(
 					new InputStreamReader(socket.getInputStream()));
+			//소켓으로 클라이언트의 데이터를 받기 위한 inputstreamReader
 			String data = reader.readLine();
 			System.out.println("receive : " + data);
 			

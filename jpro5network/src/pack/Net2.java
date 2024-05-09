@@ -23,6 +23,7 @@ public class Net2 {
 		
 		// Document : 웹페이지 문서
 		Document doc = Jsoup.connect(url).get();
+		//Jsoup을 사용하여 해당 URL에서 HTML 문서를 가져옵니다.
 		String text = doc.text(); //웹 문서의 텍스트를 모두 읽어 text 변수에 저장
 		//System.out.println(text);
 		
@@ -36,9 +37,10 @@ public class Net2 {
 			// 한글과 공백만 얻기
 			Pattern pattern = Pattern.compile("[가-힣\\s]+");
 			Matcher matcher = pattern.matcher(text);
-			
-			while(matcher.find()) {
-				String line = matcher.group().trim();
+			//정규 표현식을 사용하여 한글과 공백으로 이루어진 패턴을 정의하고, 이 패턴을 텍스트와 매칭시킵니다.
+			while(matcher.find()) { // 매칭되는 부분이 있을 때까지 반복합니다.
+				String line = matcher.group().trim(); 
+				//매칭된 부분을 공백을 제거한 후, 비어있지 않은지 확인합니다.
 				if(!line.isEmpty()) { // 빈 줄은 제외
 					System.out.println(line);
 				}
