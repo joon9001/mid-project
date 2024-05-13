@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>* 게시판 글 쓰기 *</h2>
+	<form action="border.jsp" name="frm" method="post">
+	<!-- border.jsp로 아래 form 양식의 name 값을 쿼리스트링으로 하여 보냄 -->
+	<!-- method="get"을 생략하면 기본값으로 get 방식이 선택됨 -->
+		<table border="1">
+			<tr>
+				<td>이름 :</td>
+				<td><input type="text" name="writer"></td>
+			</tr>
+			<tr>
+				<td>제목 :</td>
+				<td><input type="text" name="subject" placeholder="제목을 주세요"></td>
+			<!--placeholder는 가이드 글씨로 희미하게 초기값으로 나타난다.  -->
+			</tr>
+			<tr>
+				<td>나이 :</td>
+				<td><input type="number" name="age" value="20"></td>
+			<!-- value=20은 초기값 -->	
+			</tr>
+			<tr>
+				<td>이메일 :</td>
+				<td><input type="email" name="email"></td>
+			</tr>
+			<tr>
+				<td>글내용 :</td>
+				<td><textarea rows="10" cols="50" name="content"></textarea></td>
+				<!-- <textarea> </textarea>는 태그 사이에 공백이 있으면 에러가 나니 무조건 붙여쓴다. -->
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+				<input type="submit" value="전송"> 
+				<input type="reset" value="취소">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

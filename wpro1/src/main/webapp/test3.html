@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	table 태그 연습
+	<br>
+	<table border="1">
+		<!-- table 테두리 생성 -->
+		<thead>
+			<tr>
+				<th>제목1</th>
+				<th>제목2</th>
+				<th>제목3</th>
+				<!-- <th>는 기본값으로 <b>볼드와 가운데정렬<align: "center">이 되있다. -->
+			</tr>
+		</thead>
+		<!--<thead>와 <tbody>는 생략가능 -->
+		<tbody>
+			<tr>
+				<td>내용1임을 알림</td>
+				<td>내용2</td>
+				<td>내용3</td>
+				<!-- <td>는 <tr>태그에 종속되어 사용해야 함, 독립적으로 사용 불가 -->
+			</tr>
+			<tr>
+				<td>내용4</td>
+				<td>내용5</td>
+				<td>&nbsp;</td>
+				<!--&nbsp는 공백 의미-->
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<table border="2" bgcolor="yellow"
+		style="background-image: url('images/snow.png')">
+		<!-- 테이블 전체 배경 이미지 -->
+		<caption>상품자료</caption>
+		<tr bgcolor="red">
+			<td bgcolor="silver"><b>상품명</b></td>
+			<td>수량</td>
+			<td>단가</td>
+		</tr>
+		<tr>
+			<td>컴퓨터</td>
+			<td align="center">2</td>
+			<!-- 가운데 정렬 -->
+			<td><img src="images/pic.jpg" width="100"> <!-- 셀 안에는 텍스트 뿐만 아니라 이미지가 들어갈 수도 있음 -->
+			</td>
+		</tr>
+		<tr>
+			<td>a</td>
+			<td>
+				<table borders="3">
+					<tr>
+						<td><a href="https://www.daum.net">daum</a></td>
+						<td>나</td>
+					</tr>
+				</table>
+			</td>
+			<td>c</td>
+		</tr>
+	</table>
+	<br>
+	<!-- 행 병합 row span, 열 병합 col span -->
+	<table border="1" width="200">
+		<tr>
+			<td colspan="2">a</td>
+			<!-- colspan: 열 병합 -->
+			<td>b</td>
+			<td rowspan="2">c</td>
+			<!-- rowspan: 행 병합 -->
+		</tr>
+
+		<tr>
+			<td>d</td>
+			<td>e</td>
+			<td>f</td>
+		</tr>
+
+	</table>
+	<br>
+	<br>
+	<table border="1" width="200">
+		<tr align="center">
+			<td rowspan="2">1</td>
+
+			<td colspan="2">2</td>
+
+			<td rowspan="2">3</td>
+
+		</tr>
+
+		<tr align="center">
+
+			<td colspan="2">4</td>
+
+		</tr>
+
+		<tr align="center">
+			<td>5</td>
+			<td>6</td>
+			<td>7</td>
+			<td rowspan="2">8</td>
+		</tr>
+
+		<tr>
+			<td align="center">9</td>
+			<td colspan="2">10</td>
+
+		</tr>
+	</table>
+<br><br>
+한 화면에서 여러 개의 html 문서를 보고자 할 경우 iframe을 사용<br>
+<iframe src="test1.html" name="star" width="99%" height="300"></iframe>
+<!-- height는 비율로 값을 줄 수 없다. -->
+<a href="test2.html" target="star">test2 보기(iframe에서)</a>
+<!-- height는 비율로 값을 줄 수 없다. -->
+<p/>
+이미지 맵 : 이미지를 여러 영역으로 지정해 각 영역마다 link를 걸 수 있다.
+<br>
+<img src="images/snow.png" width="150" usemap="#snow"/>
+<map name="snow">
+	<area shape="rect" coords="0,0,50,50" href="https://www.naver.com"><br>
+	<area shape="rect" coords="50,100,100,200" href="https://www.w3.org"><br>
+</map>
+<pre>
+.
+.
+.
+</pre>
+</body>
+</html>
+
+

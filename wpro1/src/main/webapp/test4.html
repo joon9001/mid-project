@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="author" content="홍길동">
+<meta name="subject/title" content="연습용 홈피">
+<meta name="date" content="2014-05-13">
+
+<!-- 검색 로봇에 의해 검색을 당할 자료를 적음 -->
+<meta name="keyword" content="html 정보 설명">
+<meta name="description" content="홈페이지 작성 정보">
+
+<!--  <meta http-equiv="refresh" content="3; url='test1.html'"> -->
+<!--  3초 후에 tes1.html로 이동(refresh)됨 -->
+
+<title>Insert title here</title>
+</head>
+<body>
+form tag : 사용자와 정보를 소통할 수 있는 (상호작용이 가능) 태그
+<hr>
+<h2>개인 정보 입력 창</h2>
+<form action="#" name="frm" method="get">
+<!-- #은 데이터 전송이 안되고 자기 자신에게 멈춰있게 됨, 만약 #에
+abc.java를 넣어주면 주소창 경로에 /abc.java/가 추가됨 -->
+1. 이름 : <input type="text" id="ir" name="irum" size="10" maxlength="10" value="tom"><br>
+<!-- 이름 필드 안에 초기값으로 tom이 들어가있고 최대 글자수는 10자리가 들어감 -->
+2. 아이디 : <input type="text" name="id"><br/>
+3. 비번 : <input type="password" name="pwd" value="123"><br/>
+4. 사진로딩 : <input type="file" name="fname"><br>
+5. 자기 소개 : <textarea rows="5" cols="60" name="my"></textarea><br>
+6. 성별 :
+<input type="radio" name="gender" value="m">남자&nbsp;&nbsp;&nbsp;
+<input type="radio" name="gender" value="f" checked="checked">여자
+<!-- 라디오 버튼의 2개의 버튼 중 checked="checked"이 선택된 버튼이다. -->
+<!-- 나중에 넘어가는 값은 value이다. -->
+<br>
+7. 스포츠 :
+<input type="checkbox" name="sports" value="축구">축구&nbsp;&nbsp;&nbsp;
+<input type="checkbox" name="sports" value="야구">야구&nbsp;&nbsp;&nbsp;
+<input type="checkbox" name="sports" value="농구">농구&nbsp;&nbsp;&nbsp;
+<br>
+8. 교통 수단 :
+<select name="tr" size="3" multiple="multiple">
+<!--size는 몇개의 옵션을 화면에 보여줄것인지 결정하고 
+multiple은 복수 선택 가능하게 만든다.  -->
+	<option value="도보">도보</option>
+	<option value="버스">버스</option>
+	<option value="전철">전철</option>
+</select>
+<br>
+9. 숨김
+<input type="hidden" name="hello" value="hi">
+<br><br>
+<input type="submit" value="전     송">
+</form>
+
+
+
+</body>
+</html>
