@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css</title>
+<!-- 스타일 적용 -->
+<style type="text/css">
+/* internal 스타일 시트*/
+h1 {
+	font-size: 50px;
+	font-family: 궁서;
+	color: red;
+}
+
+.c1 {
+	color: orange;
+	font-family: 돋움, 궁서, serif, "times new roman"
+}
+
+#i1 {
+	color: blue;
+	font-stlye: italic;
+}
+</style>
+<!-- External 스타일 시트 -->
+<link rel="stylesheet" type="text/css" href="mycss/ex1.css">
+</head>
+<body>
+	<h2>** CSS 적용하기 **</h2>
+	<span style="font-size: 30px; color: aqua;">인라인 방식</span>
+<!-- 우선순위 : 인라인 방식 <- internal <- external -->
+	<h1>인터널 방식</h1>
+	<h2>안녕하세요</h2>
+	<h1>반가워요</h1>
+	<p class="c1">p 클래스 사용1</p>
+	<!-- class는 중복 가능 -->
+	<h2 class="c1">h2 클래스 사용2</h2>
+	<p id="i1">p 아이디 사용(중복 불가)</p>
+	<!-- id는 중복 불가 -->
+	<div id="i2">div 태그: 별도 css 파일 작성 후 스타일 적용</div>
+	<!-- 에러는 안나지만 중복 사용 자제 -->
+
+	<p>* 입력 양식 *</p>
+	<form>
+		<table>
+			<tr>
+				<td>id :</td>
+				<td><input type="text" name="id" id="id" class="id"></td>
+				<!-- 
+name:자바스크립트, 서버 전송시 변수로 쓰임, 필수사항
+id: 자바 스크립트, CSS에 쓰임, 선택사항
+class: 자바 스크립트, css에 쓰임, 선택사항
+-->
+			</tr>
+			<tr>
+				<td>pwd :</td>
+				<td><input type="text" name="pwd" id="id" class="id"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="button" id="btnOk" class="btnOk" value="전송" />
+				</td>
+			</tr>
+		</table>
+
+	</form>
+	<br>
+	<a href="https://www.naver.com">네이버 만세</a><br>
+	<a href="https://www.daum.net">다음 만세</a><br>
+	<br>
+	<i>i 태그</i>
+	<strong><span>span tag</span></strong>
+	
+	<br><b>셀렉터 : 부모, 자식, 자손 관계</b>
+	<b>b 태그</b>
+	<div><b>div 속 b 태그</b></div>
+	<div><span><b>div 속 b 태그</b></span></div>
+	<div><b id="hi">div 속 b 태그</b></div>
+	<div><b class="hello">div 속 b 태그: class가 hello</b></div>
+	<hr>
+	<div id="pic">배경 이미지</div>
+	<br>
+	<img title="good" src="images/snow.png" width=150>
+	
+</body>
+</html>

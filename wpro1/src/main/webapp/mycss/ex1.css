@@ -1,0 +1,80 @@
+@charset "UTF-8";
+/* 이거 주석 */
+
+#i2{
+	background-color: yellow;
+	color: red;
+	font-size: 20px;
+}
+h1,h2{
+	text-decoration: line-through;
+}
+table {width: 70%; margin-bottom: 10px; border: 1px solid #dddddd;}
+/* #dddddd는 16진수를 쓰고 2자리씩 끊어 쓰는데 dddddd처럼 2자릿수가 서로 같으면 ddd로 써도 된다. */
+
+table tr td { /* table에 속한 tr에 속한 td에 스타일 주기 */
+	padding: 5px 10px; border-top:1px dotted rgb(0,0,255);  
+				border-bottom:3px double rgb(255,0,0);
+}
+
+input {
+	border: 5px solid; background-color: rgb(90%, 60%, 0%);
+}
+
+input.btnOk {
+	border: 1px dotted; background-color: olive;
+}
+
+/* 동적 선택자 */
+input:focus {
+	background-color: #aabbcc;
+	/* 빈칸을 클릭하면 빈칸 색깔이 지정한 색깔로 바뀐다. */
+}
+
+a:link {
+	text-decoration: none; 
+	 /*링크 주소에 대한 스타일 (원래 스타일 밑줄이 없어짐)*/
+	 /*방문 전 링크 상태 */
+	}
+	
+a:visited {
+	color: red;
+	/*방문 후 링크 상태*/
+}
+
+a:active {
+	color: yellow; font-family: 궁서;
+	/*링크 주소를 클릭했을 때 링크 상태*/
+}
+
+a:hover {
+	font-size: 30px; cursor: crosshair;
+	/*
+링크 주소에 마우스를 올려놓았을때 링크 상태	
+cursor 속성을 이용하면 해당 태그 위에 위치하는 마우스 커서의 모양을 바꿀 수 있습니다.
+auto: 자동
+default: 기본값 (화살표)
+pointer: 손가락 모양 (클릭 가능한 버튼)
+wait: 로딩
+*/
+i, strong { /* i태그와 strong태그에 스타일 주기 */
+	color: #000; background-color: silver;
+}
+
+b{font-size: 8px;}
+div b{font-size: 16px;} /* div의 자손 b태그 */
+div > b{font-size: 24px;} /* div의 직계 자식 b태그 */
+div span b{font-size: 32px;}
+
+div b#hi{font-size: 40px;} /*div태그에 포함된 b태그 중에 id가 hi인 요소의 글씨 크기 변경 */
+div b.hello{font-size: 46px;}
+
+div#pic{height: 130px; background-color: yellow;
+		background-image: url('../images/snow.png');
+/*html div에서는 height값을 못주므로 id pic을 이용하여 css파일에서 height 값을 줌 */
+}
+
+img{
+	border: 10px dotted red;
+}
+}
