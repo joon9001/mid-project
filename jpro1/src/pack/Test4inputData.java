@@ -19,7 +19,7 @@ public class Test4inputData {
 		System.out.println("나이 입력:");
 		int nai = sc.nextInt();
 		System.out.println("이름은" + irum + ", 나이는 " + nai + "살"); //irum에 내가 키보드로 입력한 값이 들어가서 출력되므로 이름 입력 후 엔터를 치면 이름은 입력값이 출력된다.
-	
+		sc.close();
 	
 	
 	
