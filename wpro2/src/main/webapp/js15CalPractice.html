@@ -1,3 +1,4 @@
+<!-- 간단 계산기 연습문제 https://cafe.daum.net/flowlife/OLrk/40 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,6 +38,7 @@ function addOper(operator) {
     const lastChar = display.value[display.value.length - 1];
     if (['+', '-', '*', '/'].includes(lastChar)) {
         display.value = display.value.slice(0, -1) + operator;
+   //연산자가 마지막 문자라면 마지막 문자 전까지의 데이터와 기존 연산자를 합한것이 display의 value가 됨
     } else {
         display.value += operator;
     }
