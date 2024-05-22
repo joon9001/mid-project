@@ -9,6 +9,7 @@ window.onload = () => {
 		let sangpum = comment = "";
 		
 		const sel = frm.sel.options[frm.sel.selectedIndex].value;
+		//select에서 선택된 인덱스 번호를 이용하여 해당 option의 value를 sel에 저장
 		console.log(sel);
 		//선택 창에서 선택 시 option value를 console 창에 출력
 		const sang = frm.sel.options[frm.sel.selectedIndex].text;
@@ -55,10 +56,10 @@ function addRow(sangpum, comments){
 
 function addCol(para){
 	// <td> 생성
-	let col = document.createElement('td');
-	let ctext = document.createTextNode(para);
-	col.appendChild(ctext);
-	return col; // col안에 저장된 데이터 형태 <td>값</td>
+	let col = document.createElement('td'); //열을 추가하여 col에 저장
+	let ctext = document.createTextNode(para); //인수를 텍스트 형태로 ctext에 저장
+	col.appendChild(ctext); //col에 텍스트 값 부여
+	return col; // col 안에 저장된 데이터 형태 <td>값</td>
 }
 </script>
 </head>

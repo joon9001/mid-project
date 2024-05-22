@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+class MyClock{
+	constructor({template}){
+		this.template = template;
+	}
+	
+	render(){
+		let date = new Date();
+		
+		let hours = date.getHours();
+		if(hours < 10) hours = '0' + hours; 
+		//시,분,초를 00:00:00과 같이 2자리 수로 출력하기 위하여 만약 시간이 한자리 수가 나올 경우
+		//앞에 0을 더해 2자리 수로 만든다. 더해줄땐 문자형으로 더해줘야 하므로 '0' 형태로 더한다.
+		// 00 ~ 09, 11 ~ 60
+		
+		let mins = date.getMinutes();
+		if(mins < 10) mins = '0' + mins;
+		
+		let secs = date.getSeconds();
+		if(secs < 10) secs = '0' + secs;
+		
+		let output = this.template
+							.replace('h', hours)
+							.replace('m', mins)
+							.replace('s', secs)
+		console.log(output);
+	}
+	
+	stop(){
+		clearInterval(this.timer);
+	}
+	
+	start(){
+		this.render();
+		// 특정 함수를 1초마다 주기적으로 호출
+		this.timer = setInterval(() => this.render(), 1000);
+	}
+}
+let clock;
+
+function func1(){
+	clock = new MyClock({template:'h시 m분 s초'})
+	clock.start();
+}
+
+function func2(){
+	clock.stop();
+}
+</script>
+</head>
+<body>
+<h2>class를 이용한 디지털 시계</h2>
+<button onclick="func1()">시간 콘솔로 출력</button>
+<button onclick="func2()">시간 출력 종료</button>
+</body>
+</html>

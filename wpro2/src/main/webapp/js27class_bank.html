@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2>* 은행 계좌 시스템 *</h2>
+	클래스, 상속, 접근자 메소드, 정적 메소드 기능 연습
+	<hr>
+	<script type="text/javascript">
+class BankAccount{ //기본 계좌 클래스
+	// 생성자는 계좌 소유자와 초기 잔액을 설정
+	constructor(owner, balance = 0){
+		this.owner = owner;
+		this.balance = balance;
+		//자바스크립트는 멤버 필드를 위에 써줘도 되고 안써줘도 됨
+}
+	
+	deposit(amount){ // 입금
+		if(amount > 0){
+			this.balance += amount;
+			console.log(`${amount}이(가) 입금, 현재 잔액:${this.balance}`);
+		}else{
+			console.log(`입금액이 있어야 합니다`);
+		}
+	
+		
+	}
+
+	withdraw(amount){ // 출금
+		if(amount > 0 && amount <= this.balance){
+			this.balance -= amount;
+			console.log(`${amount}이(가) 출금, 현재 잔액:${this.balance} 남았습니다.`);
+		}else{
+			console.log(`출금액은 잔고액 이상 있어야 합니다`);
+		
+		}
+	}
+	
+	getBalance(){ // 잔고 확인
+		return this.balance;
+	}
+
+	toString(){  // 특정 고객의 계좌 정보를 문자열로 반환
+		return `${this.owner}님의 계좌 잔액 : ${this.balance}`;
+}
+	
+}
+
+class SavingsAccount extends BankAccount{  //자바스크립트에서도 extends로 상속 가능하다, 단 단일 상속만 허용
+	// 생성자에 이자율 추가
+	constructor(owner, balance = 0, interestRate = 0.02){
+	 	super(owner, balance);
+	 	this.interestRate = interestRate;
+	
+	}
+	addInterest() {  //이자 계산 후 잔액에 추가하기
+		const interest = this.balance * this.interestRate;
+		this.deposit(interest); // 이자 입금
+		console.log(`이자 추가됨. 이자액: ${interest}, 현재 잔액:${this.balance}`)
+	}
+	toString(){  // 특정 고객의 계좌 정보를 문자열로 반환 (오버라이딩)
+		return `${this.owner}님의 계좌 잔액 : ${this.balance}, 이자율: ${this.interestRate}`;
+		}
+	}
+	class WooriBank { //계좌가 있는 상태에서 입출금 처리 클래스
+		static createAccount(owner, type='checking', balance = 0){
+			switch(type){
+			case 'savings':			// 이미 계좌가 있는 경우
+				return new SavingsAccount(owner, balance);
+			case 'checking':		//신규
+			default:
+				return new BankAccount(owner, balance);
+			}
+		}		
+	}
+	
+//고객이 은행을 방문해서 실행
+const cjy = WooriBank.createAccount('최지연', 'savings', 10000);
+//type='savings'로 인수가 전달되어 swith문의 savings case가 실행된다.
+console.log(cjy.toString());
+//SavingsAccount의 인스턴스를 리턴받은 cjy이므로 SavingsAccount의 toString()함수를 실행하여 console 창에 출력한다.
+cjy.deposit(50000);
+// cjy변수는 SavingsAccount의 객체를 참조하므로 SavingsAccount의 deposit을 실행하려 하지만 
+//deposit()메소드가 정의되어있지 않아 메소드를 찾을 수 없기 때문에
+//부모 클래스인 BankAccount에서 찾은 deposit()메소드를 실행하게 된다.
+cjy.withdraw(20000);
+console.log(cjy.toString());
+console.log(`-------------`);
+const ksh = WooriBank.createAccount('김성하', 'checking', 20000);
+//부모 클래스인 BankAccount의 인스턴스 주소를 ksh에 저장
+ksh.deposit(50000);
+//ksh가 부모 클래스인 BankAccount의 인스턴스 객체 주소를 갖고 있으므로 BankAccount의 deposit()메소드를 실행
+ksh.withdraw(20000);
+console.log(ksh.toString());
+//ksh가 부모 클래스인 BankAccount의 인스턴스 객체 주소를 갖고 있으므로 BankAccount의 toString() 메소드를 실행
+</script>
+</body>
+</html>
