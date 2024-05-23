@@ -37,8 +37,8 @@ window.onload = () => {
 	};
 	//this는 바인딩이 객체가 생성되는 시점에 결정된다.
 	//일반함수 호출 시 this가 최상위 객체(global 또는 window)를 가리킨다.
-	// 메소드를 호출 시 호출된 객체를 가리킨다.
-	// new 키워드를 사용해 객체를 생성했을 때는 해당 객체를 가리킨다.
+	// 메소드를 호출 시 this는 호출된 객체를 가리킨다.
+	// new 키워드를 사용해 객체를 생성했을 때는 this는 해당 객체를 가리킨다.
 	
 	console.log(typeof myobj); // object
 	console.log(myobj); // Json format - {irum: '신기해', juso: '강남구 역삼동', nai: 23}
@@ -55,7 +55,7 @@ window.onload = () => {
 		console.log('안녕');
 	}
 	console.log(users);  //{name: 'tom', age: 25, sayHi: ƒ}
-	users.sayHi();
+	users.sayHi();  //'안녕' 출력
 	
 	//ex2)
 	let users2 = {

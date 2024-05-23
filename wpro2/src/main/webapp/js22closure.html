@@ -15,7 +15,7 @@
 			let name = 'tom';
 			let no = 1;
 
-			function displayName() { // 내부 함수
+			function displayName() { // 내부 함수, 클로저 사용 x
 				console.log(name + no);
 				no++;
 			}
@@ -38,8 +38,8 @@
 		}
 
 		let myFunc = makeFunc(); // displayName 함수의 주소를 치환
-		myFunc();
-		myFunc();
+		myFunc(); //displayName()함수가 실행되고 클로저에서 증가된 no를 기억한다.
+		myFunc(); //기억한 no를 다시 출력하므로 결과적으로 no는 증가되어 출력한다.
 		myFunc();
 
 		function makeAdd(x) {
