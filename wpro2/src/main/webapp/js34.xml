@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mylist>
+	<item>
+	<!-- code price="5000"은 item의 childNode[0]이거나 Child.firstNode가 된다. -->
+		<code price="5000">10</code> 
+		<!-- 10은 code의 childNodes[0]이거나 firstChild가 된다. -->
+		<sang>아메리카노</sang>
+	</item>
+	<item>
+		<code price="6000">20</code>
+		<sang>콜드브르</sang>
+	</item>
+	<item>
+		<code price="7000">30</code>
+		<sang>카페라떼</sang>
+	</item>
+</mylist>
