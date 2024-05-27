@@ -17,7 +17,7 @@ function getFunc(){
 	let nai = frm.age.value;
 	// alert(irum + " " + nai);
 	
-	fName = "getpost.jsp?name=" + irum + "&age=" + nai;
+	fName = "js37.jsp?name=" + irum + "&age=" + nai;
 	
 	xhr = new XMLHttpRequest();
 	xhr.open('get', fName, true);
@@ -39,7 +39,7 @@ function getFunc(){
 function getProcess(){
 	let data = xhr.responseText;
 	let ss = "get 요청 결과 : " + data;
-	document.querySelector("#show").innerText = ss;
+	document.querySelector("show").innerText = ss;
 }
 
 function postFunc(){
@@ -49,7 +49,7 @@ function postFunc(){
 	// alert(irum + " " + nai);
 
 	xhr = new XMLHttpRequest();
-	xhr.open('post', "getpost.jsp", true);
+	xhr.open('post', "js37.jsp", true);
 
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState === 4) {
@@ -76,7 +76,7 @@ function postProcess(){
 <body>
 <h2>Ajax get,post 요청</h2>
 <form name="frm">
-이름 : <input type = "text" name = "name" value = "yeobin"><br>
+이름 : <input type = "text" name = "name" value = "honggildong"><br>
 나이 : <input type = "text" name = "age" value = "23"><br>
 <br>
 <input type="button" value="get" id="btnGet">

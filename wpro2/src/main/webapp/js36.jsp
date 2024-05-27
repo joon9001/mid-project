@@ -16,7 +16,8 @@ JSP 파일에서 DB 자료를 읽어와서 JSON 파일 형태로 변환하는 �
 1. 위의 contentType을 text/html에서 text/plain으로 바꿔줘야 함 
 
 2. 아래 HTML 태그들은 모두 삭제 */
-//HTML에서 자바 문장을 쓰기 위해 지시어 를 붙여줌
+
+//HTML에서 자바 문장을 쓰기 위해 지시어 %를 붙여줌
 //sangdata 테이블을 읽어 XML 형식으로 출력 
 Connection conn = null;
 PreparedStatement pstmt = null;
