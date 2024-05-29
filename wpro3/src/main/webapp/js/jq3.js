@@ -32,8 +32,16 @@ $(document).ready(function(){
 			for (let i = 0; i < age.length; i++){
 				// 1 글자씩 추출 후 Ascii 코드 값 얻기
 				let data = age.charAt(i).charCodeAt(0);  
+				//age.charAt(i)는 문자열 age에서 i번째 위치의 문자를 가져옵니다.
+				//.charCodeAt(0)는 charAt(i)가 반환한 문자열의 0번째 위치에 있는 
+				//문자의 ASCII 코드를 가져옵니다. 이는 본질적으로 age 문자열의 i번째 위치에 
+				//있는 문자의 ASCII 코드를 가져오는 것과 같습니다.
+				//결과는 변수 data에 저장됩니다.
 				// alert(data);
 				if(data < 48 || data > 57){
+	//이 조건문은 data에 저장된 ASCII 코드가 숫자 문자 '0'에서 '9'의 ASCII 코드 범위에 
+	//속하지 않는지 확인합니다. '0'에서 '9'의 ASCII 코드는 각각 48에서 57입니다.
+    //만약 data가 48보다 작거나 57보다 크다면, 이는 해당 문자가 숫자가 아님을 의미합니다.
 					$('#age_err2').show();
 					return false;
 				}else{

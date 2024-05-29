@@ -71,7 +71,7 @@ $(document).ready(function(){
 		$("#disp").empty();
 		
 		$.ajax({
-			type: "get",      		// 요청 방식 post
+			type: "get",      		// 요청 방식 get
 			url: "jq4json.jsp",
 			// data:{'code': 3, 'sang' : 'book'}, // jq4json.jsp?code=3&sang=book 
 			dataType: "json", 		// 반환 data Type

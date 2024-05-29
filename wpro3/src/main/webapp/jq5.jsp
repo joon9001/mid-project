@@ -5,13 +5,14 @@
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/xml; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<jikwons>
+    pageEncoding="UTF-8"%> 
+<!-- pageEncoding은 자바에 가져와 해석할 때 형식, contentType은 웹서버로 보낼 때 형식 -->
+<jikwons> 
 <%
 String gubun = request.getParameter("gubun");
 String name = request.getParameter("name");
 
-// sangdata 테이블을 읽어 XML 형식으로 출력 
+// jikwons 테이블을 읽어 XML 형식으로 출력 
 Connection conn = null;
 PreparedStatement pstmt = null;
 ResultSet rs = null;
@@ -29,6 +30,8 @@ try{
 	}else{
 		pstmt = conn.prepareStatement(sql += " where jikwon_name like ?");
 		pstmt.setString(1, name + "%");
+	//name + "%"는 사용자가 입력한 이름의 앞부분과 일치하는 모든 이름을 검색하기 위한 패턴을 나타냅니다. 
+	//여기서 %는 SQL에서 사용되는 와일드카드 문자로, 0개 이상의 임의의 문자를 의미합니다.
 	}
 	
 	rs = pstmt.executeQuery();

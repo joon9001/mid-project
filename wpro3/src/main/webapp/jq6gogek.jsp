@@ -7,8 +7,8 @@
 
     pageEncoding="UTF-8"%>
   
-   
-{"sangpum":[
+
+[
 <%
 /* 
 JSP 파일에서 DB 자료를 읽어와서 JSON 파일 형태로 변환하는 방법 (.jsp 파일 초기 세팅)
@@ -17,33 +17,32 @@ JSP 파일에서 DB 자료를 읽어와서 JSON 파일 형태로 변환하는 �
 
 2. 아래 HTML 태그들은 모두 삭제 */
 //HTML에서 자바 문장을 쓰기 위해 지시어 를 붙여줌
-//sangdata 테이블을 읽어 XML 형식으로 출력 
+//직원 테이블을 읽어 XML 형식으로 출력 
 Connection conn = null;
 PreparedStatement pstmt = null;
 ResultSet rs = null;
+
+String arg = request.getParameter("arg");
 
 try{
 	Class.forName("org.mariadb.jdbc.Driver");
 	String Url ="jdbc:mariadb://localhost:3306/test";
 	conn = DriverManager.getConnection(Url, "root", "123");
-	pstmt = conn.prepareStatement("select * from sangdata");
+	pstmt = conn.prepareStatement("select gogek_name,gogek_tel from gogek inner join jikwon on jikwon_no=gogek_damsano where jikwon_no=?");
+	pstmt.setString(1, arg);
 	rs = pstmt.executeQuery();
 	
-	//rs.next();
-	//out.print(rs.getString("sang"));
 	String result = "";
 	
 	while(rs.next()){
 		result += "{"; //""를 "" 사이에 json 형식으로 넣으려면 이스케이프 문자 \을 "앞에 추가해줘야 함
-		result += "\"code\":" + "\"" + rs.getString("code") + "\",";
-		result += "\"sang\":" + "\"" + rs.getString("sang") + "\",";
-		result += "\"su\":" + "\"" + rs.getString("su") + "\",";
-		result += "\"dan\":" + "\"" + rs.getString("dan") + "\"";
+		result += "\"gogek_name\":" + "\"" + rs.getString("gogek_name") + "\",";
+		result += "\"gogek_tel\":" + "\"" + rs.getString("gogek_tel") + "\"";
 		result += "},";
 	}
 	if(result.length() > 0){
 		result = result.substring(0,result.length() - 1);
-		// 전체 길이 - 1만큼만 반환 
+		// 전체 길이 - 1만큼만 반환 , 위의 result에 마지막 , 제거하기 위함
 	}
 	out.print(result);
 }catch(Exception e){
@@ -60,4 +59,3 @@ try{
 }
 %>
 ]
-}
