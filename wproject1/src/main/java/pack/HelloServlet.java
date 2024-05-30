@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 //@WebServlet("/HelloServlet") //요청이 1개일 때
 @WebServlet(name = "HelloServlet", urlPatterns = {"/HelloServlet","/good.kor","/dajeong"},loadOnStartup = 1) 
 //요청이 여러개일 때
+//"HelloServlet"이라는 이름의 서블릿을 정의하고, "/HelloServlet", "/good.kor", "/dajeong" 세 가지 URL 패턴에 매핑하고 있으며, 
+// 시작 시점에 로드되도록 설정됨 (loadOnStartup = 1 => 가장 먼저 로드)
 public class HelloServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

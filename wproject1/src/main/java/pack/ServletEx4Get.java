@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/ServletEx4Get")
+@WebServlet("/ServletEx4Get")  // 이 서블릿 클래스를 "/ServletEx4Get" URL 패턴(주소)에 매핑
+
 public class ServletEx4Get extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -21,13 +22,13 @@ public class ServletEx4Get extends HttpServlet {
 		
 		// 클라이언트로 출력
 		response.setContentType("text/html;charset=utf-8"); // Mime type과 문자 코드 
-		PrintWriter out = response.getWriter();
+		PrintWriter out = response.getWriter(); 
 		out.println("<html><body>");
 		out.println("<h2>get 요청 결과</h2>");
 		out.println("이름은 " + name + "의 주소 : " + addr + ", 나이 : " + age);
 		out.println("<br>" + calcAge(age));
 		out.println("<br><br><a href='getdata.html'>자료 다시 입력</a>");
-		out.println("</html></body>");
+		out.println("</body></html>");
 		out.close();
 	}
 

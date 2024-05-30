@@ -11,10 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 
 
 @WebServlet("/post.do")
+//물리적인 클래스 파일 이름과 별명으로 준 주소 이름이 이렇게 다를 수도 있다. 
 public class ServletEx5Post extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//request는 html 파일로부터 데이터를 받아오는 것이고 response는 
+		//위의 @WebServlet이 지정한 html 파일로 데이터를 내보내는 것이다.
 		request.setCharacterEncoding("utf-8"); // 수신 자료 한글 깨짐 방지
 		response.setContentType("text/html;charset=utf-8"); // Mime type과 문자 코드
 		PrintWriter out = response.getWriter(); 
@@ -24,13 +27,14 @@ public class ServletEx5Post extends HttpServlet {
 		out.println("<h2>post 요청 결과</h2>");
 		
 		String irum = request.getParameter("name");
-		String []juso = request.getParameterValues("addr"); // 매개변수가 중복인 경우 배열 처리
+		String []juso = request.getParameterValues("addr"); // 매개변수 addr가 중복인 경우 배열로 처리된다.
 		
 		out.println("이름은 " + irum + ", 주소는 " + juso[0] + " " + juso[1]);
 		
 		//checkbox
 		try {
-			String sports[] = request.getParameterValues("sports"); // 매개변수가 중복인 경우 배열 처리
+			String sports[] = request.getParameterValues("sports"); 
+			// 매개변수가 중복인 경우 선택된 항목만 배열에 들어감
 			out.println("<br>선택한 종목은 ");		
 			for(String s:sports) {
 				out.println(s + " ");
