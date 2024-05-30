@@ -9,6 +9,7 @@
 <h2>* 자동완성(Suggest) 기능 : 이름 검색 *</h2>
 <form name="frm">
 검색어 : <input type="text" name="keyword" id="kbs" onkeydown="sijak()">
+<!-- 키가 입력될때마다 sijak()함수를 실행함 -->
 <br><br><br><br><br><br><br><br><br><br>
 <hr>
 선택된 직원명 : <input type="text" name="sel" size="10">
@@ -16,7 +17,7 @@
 
 <div id="suggest" 
 	style="display: none; position: absolute; left: 70px; top:100px;">
-	<div id="suggestList"></div>
+	<div id="suggestList"></div>	
 </div>
 </form>
 </body>
