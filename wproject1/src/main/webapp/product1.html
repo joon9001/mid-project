@@ -1,0 +1,58 @@
+-/<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = () => {
+	document.querySelector("#btnOk").onclick = function(){
+
+	frm.submit();
+}
+}
+</script>
+</head>
+<body>
+<table>
+	<tr>
+		<td>
+		<img src="images/sangpum1.jpg" width="80%">
+		</td>
+		
+		<td>
+		<pre>
+바른컴퓨터 게이밍 컴퓨터 조립PC 본체 사무용 롤 발로란트 피파 팰월드 배그
+344개 상품평
+43% 1,000,000원 
+599,000원
+쿠팡판매가
+569,050원
+와우할인가
+	
+이 상품은 내일 도착, 무료배송
+
+내일(토) 6/1 도착 보장(13시간 8분 내 주문 시/ 서울⋅경기 기준)
+
+무료배송
+599,000원 쿠팡판매가	
+569,050원 와우할인가	
+1
+PC에서도 간편한 결제	
+</pre>
+		</td>
+		
+		<tr>
+		<td colspan="2">
+			<form action="Cart" name="frm" method="post">
+				<input type="hidden" name="name" value="디온리 스테인리스 찜기">
+				<input type="hidden" name="price" value="42000">
+				<input type="button" id="btnOk" value="장바구니에 상품 담기">
+				<input type="button" value="홈으로 이동" onclick="history.back()">
+				<!--  history.back()은 이전 페이지로 돌아가기-->
+			</form>		
+		</td>
+		</tr>
+	</tr>
+</table>
+</body>
+</html>

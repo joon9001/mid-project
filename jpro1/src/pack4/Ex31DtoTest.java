@@ -1,50 +1,50 @@
-// https://cafe.daum.net/flowlife/HqLo/22 몸풀기 문제
 package pack4;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Ex31DtoTest {
+	private ArrayList<Ex31StudentDTO> list = new ArrayList<Ex31StudentDTO>();
 
-	public static void main(String[] args) {
-
-		Scanner scanner = new Scanner(System.in);
-		ArrayList<Ex31StudentDTO> students = new ArrayList<Ex31StudentDTO>();
-		// 입력 받기
-		
-			while (true) {
-				try {
-				System.out.print("이름을 입력하세요 ");
+	public void insertList() {
+		while(true) {
+			try {
+				Scanner scanner = new Scanner(System.in);
+				System.out.print("이름:");
 				String name = scanner.next();
-				System.out.print("국어 점수를 입력하세요: ");
-				int koreanScore = scanner.nextInt();
-				System.out.print("영어 점수를 입력하세요: ");
-				int englishScore = scanner.nextInt();
-
-				// Ex31StudentDTO 객체 생성 및 컬렉션에 추가
-				Ex31StudentDTO student = new Ex31StudentDTO(name, koreanScore, englishScore);
-				students.add(student);
-
-				System.out.print("계속할까요? (y/n): ");
-				String continueInput = scanner.next();
-
-				if (!continueInput.equalsIgnoreCase("y")) {
-					break;
-
-				}
+				System.out.print("국어:");
+				int kor = scanner.nextInt();
+				System.out.print("영어:");
+				int eng = scanner.nextInt();
+				
+				Ex31StudentDTO dto = new Ex31StudentDTO();
+				dto.setName(name);
+				dto.setKor(kor);
+				dto.setEng(eng);
+				list.add(dto);
+				
+				System.out.print("계속할까요?(y/n)");
+				if(scanner.next().equalsIgnoreCase("n")) break;
+			} catch (Exception e) {
+				System.out.println("처리 중 오류 발생 : " + e);
+				break;
 			}
-		 catch (Exception e) {
-			System.out.println("처리 중 오류 발생: " + e);
-			break;
 		}
 	}
-		// 테이블 형식으로 출력
+	public void showList() {
 		System.out.println("이름\t국어\t영어\t총점");
-		for (Ex31StudentDTO student : students) {
-			System.out.println(student.getName() + "\t" + student.getKoreanScore() + "\t" + student.getEnglishScore()
-					+ "\t" + student.getTotalScore());
+		for(Ex31StudentDTO my:list) {
+			int tot = my.getKor() + my.getEng();
+			System.out.println(my.getName() + "\t" + 
+						my.getKor() + "\t" + 
+						my.getEng() + "\t" + tot);
 		}
-		System.out.println("응시 인원 : " + students.size() + "명");
+		System.out.println("응시 인원 : " + list.size() + "명");
+	}
+	
+	public static void main(String[] args) {
+		Ex31DtoTest dtoExam = new Ex31DtoTest();
+		dtoExam.insertList();
+		dtoExam.showList();
 	}
 }
