@@ -101,13 +101,13 @@ public class Ex50Packman extends JFrame implements KeyListener{
 		if(key == KeyEvent.VK_DOWN || key == KeyEvent.VK_NUMPAD2) {
 			
 			selImage = (selImage == 5)?6:5; 
-			y = (y >= 0)? y +=10:imgetheight(); 
+			y = (y >= 0)? y +=10:getHeight(); 
 			
 		}
 		if(key == KeyEvent.VK_UP || key == KeyEvent.VK_NUMPAD8) {
 			
 			selImage = (selImage == 7)?8:7; 
-			y = (y <= 0)? y -=10:getheight(); 
+			y = (y <= 0)? y -=10:getHeight(); 
 			
 		}
 		

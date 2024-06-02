@@ -4,8 +4,8 @@ function goFunc(element){
 	//console.log(element);
 	ele = element;
 	//console.log(ele.id);
-	disp = document.getElementById("#disp");
-	popup = document.getElementById("#popup");
+	disp = document.getElementById("disp");
+	popup = document.getElementById("popup");
 	
 	xhr = new XMLHttpRequest();
 	xhr.open("post", "jq7data.jsp", true);
@@ -42,7 +42,12 @@ function clsFunc(){
 	for(let i=disp.childNodes.length - 1; i >= 0; i--){
 		disp.removeChild(disp.childNodes[i]);
 	}
-	
+	/*역순으로 순회:
+자식 노드를 제거할 때, 역순으로 순회하는 이유는 DOM에서 노드를 제거하면 인덱스가 즉시 재조정되기 때문입니다. 
+정방향으로 순회하면서 자식 노드를 제거하면, 인덱스가 변경되어 올바른 순서로 모든 자식 노드를 제거하지 못할 수 있습니다.
+예를 들어, 정방향 순회 중에 첫 번째 자식 노드를 제거하면 원래 두 번째 자식 노드가 첫 번째 자식 노드가 되며, 
+이 과정에서 인덱스가 재조정됩니다. 반면, 역순으로 순회하면 이러한 문제를 피할 수 있습니다.
+	*/
 	popup.style.border = "none";
 }
 
@@ -67,10 +72,3 @@ function calcOffSetFunc(field, attr){
   }
   return offset;
 }
-
-
-
-
-
-
-

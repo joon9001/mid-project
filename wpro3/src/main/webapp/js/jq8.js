@@ -1,16 +1,18 @@
 let xhr
 let checkFirst = loopSend = false;
+//부울 값으로, 초기 값은 모두 false입니다. 특정 상태를 추적하기 위해 사용됩니다.
 let kbs;
 
 function sijak(){
 	if(checkFirst === false){
+	//kbs: setTimeout의 식별자를 저장하기 위한 변수.
 		kbs = setTimeout("sendkeyword()", 800);
 		loopSend = true;
 	}
 }
 
 function sendkeyword(){
-	//let keyWord = document.quesySelector("#kbs").values;
+	//let keyWord = document.querySelector("#kbs").values;
 	let keyWord = document.frm.keyword.value;
 	//console.log(keyWord);
 	
@@ -34,10 +36,12 @@ function process(){
 	let resultData = xhr.responseText;
 	//console.log(resultData);
 	let result = resultData.split("|");
+	// 2|홍길동,홍두깨 형태로 저장되있는 자료를 |를 기준으로 자른다.
 	//console.log(`건수:${result[0]} 자료:${result[1]}`);
 	let tot = result[0];
 	if(tot > 0){
 		let datas = result[1].split(",");
+//홍길동,홍두깨 형태의 배열을 ,를 기준으로 split한다.		
 		let imsi = "";
 		for(let i=0; i < datas.length; i++){
 			imsi += "<a href=\"javascript:func('" + datas[i] + "')\">" + 
@@ -65,7 +69,3 @@ function hide(){
 function show(){
 	document.querySelector("#suggest").style.display="";
 }
-
-
-
-
