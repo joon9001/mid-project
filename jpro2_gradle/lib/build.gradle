@@ -25,7 +25,8 @@ dependencies {
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:31.1-jre'
-    implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '3.2.0'
+    implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '3.1.0'
+    implementation group: 'com.github.waffle', name: 'waffle-jna', version: '3.2.0'
     
     compileOnly 'org.projectlombok:lombok:1.18.32'
 

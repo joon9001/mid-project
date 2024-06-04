@@ -72,7 +72,7 @@ public class DBTest1 {
 			rs = stmt.executeQuery(sql);
 			rs.next();
 			System.out.println("건수 : " + rs.getString("cou"));
-			System.out.println("건수 : " + rs.getString("count(*)"));
+		//	System.out.println("건수 : " + rs.getString("count(*)"));
 			System.out.println("건수 : " + rs.getString(1));
 			//sql문을 자바 string 변수에 저장 후 자바에서 sql문을 읽어오기 위해 stmt.executeQuery로 읽은 후
 			//rs로 받아오고 rs.next() 받아온 sql문을 실행할 수 있도록 포인터 이동 후 rs.getstring("별명")으로 
