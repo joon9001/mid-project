@@ -10,29 +10,37 @@
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
   <!-- 
-  에러 처리 우선순위 1등 : 각 페이지마다 isErrorPage 처리 
+  에러 처리 우선 1순위 : 각 페이지마다 isErrorPage 처리
    -->
-  
-  <!-- 에러 처리 우선순위 3등 -->
-  <!-- 
+   
+   <!-- 
+   에러 처리 우선 3순위
   <error-page>
   	<error-code>500</error-code>
   	<location>/err500.jsp</location>
   </error-page>
   <error-page>
-  	<error-code>404</error-code>
+  	<error-code>400</error-code>
   	<location>/err404.jsp</location>
   </error-page>
    -->
-  <!-- 에러 처리 우선순위 2등 -->
+
   <!-- 
+   에러 처리 우선 2순위
   <error-page>
   	<exception-type>java.lang.ArithmeticException</exception-type>
   	<location>/errarith.jsp</location>
   </error-page>
-<error-page>
-  	<exception-type>java.lang.FilenotFoundException</exception-type>
+  <error-page>
+  	<exception-type>java.lang.FileNotFoundException</exception-type>
   	<location>/errfilenot.jsp</location>
   </error-page>
    -->
+   
+	<servlet>
+  		<servlet-name>InitServlet</servlet-name>
+  		<servlet-class>pack.InitServlet</servlet-class>
+  		<load-on-startup>1</load-on-startup>
+	</servlet>
+   
 </web-app>

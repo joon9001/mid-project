@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-안녕. 난 아무나 못 불러. 성격 있어~ 
+아무나 부르지 못하는 경로에 존재하는 hi.jsp 등장(WEB-INF)
 </body>
 </html>
