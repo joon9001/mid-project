@@ -1,6 +1,6 @@
 package pack;
 
-public class sangpumDto {
+public class SangpumBean {  // 폼빈
 	private String code, sang, su, dan;
 
 	public String getCode() {
@@ -34,7 +34,5 @@ public class sangpumDto {
 	public void setDan(String dan) {
 		this.dan = dan;
 	}
-	
-	
 	
 }

@@ -61,11 +61,11 @@ if(jwt != null){
 <%
 	}catch(JwtException e){
 		// JWT가 유효하지 않으면 로그인 페이지로 이동
-		response.sendRedirect("jsp10sessionlogin.html");
+		response.sendRedirect("jsp09sessionlogin.html");
 	}
 }else{
 	// JWT가 없으면 로그인 페이지로 이동
-	response.sendRedirect("jsp10sessionlogin.html");
+	response.sendRedirect("jsp09sessionlogin.html");
 }
 
 %>

@@ -6,12 +6,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class connClass {
+public class ConnClass {
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;
 	
-	public connClass() {
+	public ConnClass() {
 		try {
 			Class.forName("org.mariadb.jdbc.Driver");
 			
@@ -20,8 +20,8 @@ public class connClass {
 		}
 	}
 	
-	public ArrayList<sangpumDto> getDataAll(){
-		ArrayList<sangpumDto> list = new ArrayList<sangpumDto>();
+	public ArrayList<SangpumDto> getDataAll(){
+		ArrayList<SangpumDto> list = new ArrayList<SangpumDto>();
 		try {
 			String url="jdbc:mariadb://localhost:3306/test";
 			conn = DriverManager.getConnection(url, "root", "123");
@@ -29,7 +29,7 @@ public class connClass {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				sangpumDto dto = new sangpumDto();
+				SangpumDto dto = new SangpumDto();
 				dto.setCode(rs.getString("code"));	// rs.getString(1)
 				dto.setSang(rs.getString("sang"));
 				dto.setSu(rs.getString("su"));
@@ -45,7 +45,7 @@ public class connClass {
 				if(pstmt != null) pstmt.close();
 				if(conn != null) conn.close();
 			} catch (Exception e2) {
-				// TODO: handle exception
+				
 			}
 		}
 		

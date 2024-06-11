@@ -28,6 +28,10 @@ if(id != null && password != null && id.equalsIgnoreCase(validId) && password.eq
 	// 위의 작업을 주석 처리하고 아래 내용으로 변경하자.
     // 서블릿 컨텍스트에서 Base64로 인코딩된 비밀 키 가져오기  java.util.Base64
     String encodedKey = (String) getServletContext().getAttribute("secretKey");
+	//getServletContext()는 Java Servlet API에서 제공하는 메서드로, 
+	//서블릿이 웹 애플리케이션의 컨텍스트를 가져올 수 있게 해줍니다. 
+	//서블릿 컨텍스트는 웹 애플리케이션 전체에 걸쳐 공유되는 환경을 의미하며, 
+	//애플리케이션 전체에서 사용할 수 있는 초기화 파라미터, 속성 및 리소스에 접근할 수 있도록 합니다.
     byte[] decodedKey = Base64.getDecoder().decode(encodedKey);
     Key secretKey = Keys.hmacShaKeyFor(decodedKey);
 	
