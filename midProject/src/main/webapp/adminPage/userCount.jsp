@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!-- 방문자 수 확인하기 -->
 <!DOCTYPE html>
 <html lang="en">

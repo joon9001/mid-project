@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Counter</title>
+</head>
+<body>
+    <h1>Review Counter</h1>
+    <p>총 리뷰 생성 건수: <span id="reviewCount">0</span></p>
+    <textarea id="reviewInput" placeholder="리뷰를 작성해주세요..."></textarea>
+    <button onclick="addReview()" id="reviewBtn">리뷰 생성</button>
+
+    <script>
+        // 리뷰 생성 건수를 저장할 변수
+        let reviewCount = 0;
+
+        // 리뷰 생성 함수
+        function addReview() {
+            // 리뷰 생성 건수 1 증가
+            reviewCount++;
+            // HTML 요소에 반영
+            document.getElementById("reviewCount").innerText = reviewCount;
+        }
+
+        // 리뷰 작성 이벤트 리스너 추가
+        document.getElementById("reviewBtn").addEventListener("input", addReview);
+    </script>
+</body>
+</html>

@@ -32,7 +32,7 @@ public class ConnClass {
 				SangpumDto dto = new SangpumDto();
 				dto.setCode(rs.getString("code"));	// rs.getString(1)
 				dto.setSang(rs.getString("sang"));
-				dto.setSu(rs.getString("su"));
+				dto.setSu(rs.getString("su")); 
 				dto.setDan(rs.getString("dan"));
 				list.add(dto);
 			}
