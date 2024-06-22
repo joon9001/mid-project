@@ -4,7 +4,7 @@
 String mbc = request.getParameter("msg");
 %>
 
-<jsp:useBean id="my" class="pack.Para1Class"></jsp:useBean>
+<jsp:useBean id="my" class="test.Para1Class"></jsp:useBean>
 
 <!DOCTYPE html>
 <html>

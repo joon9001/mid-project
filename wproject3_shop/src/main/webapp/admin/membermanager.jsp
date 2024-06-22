@@ -25,7 +25,7 @@
   </tr>
   <%
   ArrayList<MemberBean> list = memberMgr.getMemberAll(); 
-  for(MemberBean m:list){
+    for(MemberBean m:list){
   %>
   <tr style="text-align: center;">
   	<td><%=m.getId() %></td>

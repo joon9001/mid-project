@@ -1,9 +1,9 @@
-<%@page import="pack.ConnClass2"%>
-<%@page import="pack.JikwonDto"%>
+<%@page import="test.ConnClass2"%>
+<%@page import="test.JikwonDto"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="connClass2" class="pack.ConnClass2" />
+<jsp:useBean id="2 connClas" class="w test.ConnClas" />
 <%
 String buser = request.getParameter("buser");
 %>

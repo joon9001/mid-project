@@ -6,7 +6,7 @@ request.setCharacterEncoding("utf-8");
 //String name = request.getParameter("name");	// 과거에 사용한 방법
 %>
 
-<jsp:useBean id="bean" class="pack.ExamBean"></jsp:useBean>
+<jsp:useBean id="bean" class="test.ExamBean"></jsp:useBean>
 
 
 <!-- 
@@ -27,7 +27,7 @@ request.setCharacterEncoding("utf-8");
 영어 점수는 <jsp:getProperty property="eng" name="bean"/><br>
 수학 점수는 <jsp:getProperty property="math" name="bean"/><br>
 
-<jsp:useBean id="process" class="pack.ExamProcess"></jsp:useBean>
+<jsp:useBean id="process" class="test.ExamProcess"></jsp:useBean>
 <jsp:setProperty property="bean" name="process" value="<%=bean %>"/>
 총점은 <jsp:getProperty property="tot" name="process"/>
 <br>

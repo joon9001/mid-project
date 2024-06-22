@@ -1,0 +1,204 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/NanumGothic-Regular.ttf') format('truetype');
+}
+
+.header {
+	height: 117px; background-color: grey;
+}
+
+.content{
+	height: 1466px; background-color: white;
+	
+.top-content{
+		background-image: url("../image/mainbanner_imsi.jpg");
+		background-size: 50%;
+		background-repeat: no-repeat;
+		background-position: right;
+		width: 1008px; 
+		height: 313px; 
+		margin: auto; 
+		margin-top: 50px; 
+		
+	}
+h3{
+	position: relative;
+	left: 70px;
+	top: 10px;
+}
+
+.rec-review {
+	width: 1008px; 
+	height: 268px; 
+	margin: auto; 
+	margin-top: 50px;
+}
+h2{
+	width: 1008px; 
+	height: 30px;
+	
+}
+.review-first{
+	width: 550px;
+	height: 214px;
+	border: 1px solid;
+	float: left;
+}
+.review-second{
+	width: 415px;
+	height: 94px;
+	border: 1px solid;
+	float: right;
+}
+.review-third{
+	width: 415px;
+	height: 94px;
+	border: 1px solid;
+	float: right;
+	margin-top: 25px;	
+}
+
+.event-banner{
+	width: 1008px; height: 233px; background-color: yellow; margin: auto; margin-top: 45px;
+}
+
+.rec-book{
+	width: 1008px; 
+	height: 355px; 
+	margin: auto; 
+	margin-top: 84px;
+}
+.book-first{
+	width: 230px;
+	height: 230px;
+	border: 1px solid;
+	border-radius: 50%;
+	float: left;
+}
+.book-second{
+	width: 230px;
+	height: 230px;
+	border: 1px solid;
+	border-radius: 50%;
+	float: left;
+	margin-left: 25px;
+	margin-top: 50px;
+}
+.book-third{
+	width: 230px;
+	height: 230px;
+	border: 1px solid;
+	border-radius: 50%;
+	float: left;
+	margin-left: 25px;
+}
+.book-fourth{
+	width: 230px;
+	height: 230px;
+	border: 1px solid;
+	border-radius: 50%;
+	float: left;
+	margin-left:25px;
+	margin-top: 50px;
+}
+	
+}
+
+.footer {
+	width: 100%;
+	height: 117px; 
+	background-color: none;
+}
+
+.head_wrapper{
+	width: 100%;
+	height: 100%;
+	margin: auto;
+}
+
+.header_menu{
+    float: left;
+    width: 8%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.header_logo{
+    float: left;
+    width: 20%;
+    height: 100%;
+    box-sizing: border-box;
+}
+.header_search{
+	float: left;
+    width: 57%;
+    height: 100%;
+    box-sizing: border-box;
+   
+}
+.header_login{
+	float: right;
+	width: 15%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+}
+.search_box{
+	height: 64px;
+	width: 80%;
+	background: white;
+	border-radius: 20px;
+	border: 1px solid #649844;
+	position: relative;
+}
+.search_txt{
+	border: none;
+	background: none;
+	outline: none;
+	float: left;
+	padding: 0px;
+	color: black;
+	font-size: 24px;
+	line-height: 64px;
+	width: 70%;
+}
+.search_btn{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	border: none;
+	background: none;
+	font-size: 35px;
+	cursor: pointer;	
+}
+.search_detailbtn{
+	position: absolute;
+	top: 10px;
+	right: -150px;
+	font-size: 20px;
+	height: 64px;
+	width: 99px;	
+	border-radius: 20px;
+	cursor: pointer;
+}
+.login_btn{
+	position: absolute;
+	top: 10px;
+	right: 20px;
+	font-size: 20px;
+	height: 64px;
+	width: 99px;	
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+.bottom_info{
+	border-top: 1px solid black;
+	width: 80%;
+	height: 100%;
+	margin: auto;
+	text-align: center;
+}

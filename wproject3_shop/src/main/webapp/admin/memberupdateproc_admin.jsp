@@ -3,9 +3,9 @@
 
 <% request.setCharacterEncoding("utf-8"); %>
 
-<jsp:useBean id="bean" class="pack.member.MemberBean" />
+<jsp:useBean id="bean" class="pack.user.MemberBean" />
 <jsp:setProperty property="*" name="bean" />
-<jsp:useBean id="memberMgr" class="pack.member.MemberMgr" />
+<jsp:useBean id="memberMgr" class="pack.user.MemberMgr" />
 
 <!DOCTYPE html>
 <html>

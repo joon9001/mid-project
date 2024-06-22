@@ -2,9 +2,9 @@
     pageEncoding="UTF-8"%>
 <% request.setCharacterEncoding("utf-8"); %>
 
-<jsp:useBean id="bean" class="pack.SangpumBean" />
+<jsp:useBean id="n be" class="w test.SangpumBe" />
 <jsp:setProperty property="*" name="bean" />
-<jsp:useBean id="connP" class="pack.ConnPooling" scope="page" />
+<jsp:useBean id="g con" class="w test.ConnPooli" scope="page" />
 
 <%
 //boolean b = connP.updateDataok(bean);

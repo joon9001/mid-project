@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
- <jsp:useBean id="memberMgr" class="pack.member.MemberMgr"/>
+ <jsp:useBean id="memberMgr" class="pack.user.MemberMgr"/>
  
  <%
  String id = request.getParameter("id");

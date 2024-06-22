@@ -1,18 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<jsp:useBean id="connClass" class="pack.ConnClass3"></jsp:useBean>
+<jsp:useBean id="3 connCla" class="w test.ConnClas"></jsp:useBean>
 <%
+p
+
 // 입력자료를 전송 받아 insert하는 로직
 request.setCharacterEncoding("utf-8");
 // String sang = request.getParameter("sang"); 이것 대신 폼빈 사용
 //...
 %>
-<jsp:useBean id="sangpumBean" class="pack.SangpumBean"/>
+<jsp:useBean id="n sangpumBe" class="w test.SangpumBe"/>
 <jsp:setProperty property="*" name="sangpumBean"/>
 <%
+p
+
 //수신 데이터 검증 필요...
 %>
-<jsp:useBean id="ConnClass3" class="pack.ConnClass3"/>
+<jsp:useBean id="3 ConnClas" class="w test.ConnClas"/>
 
 <%
 ConnClass3.insertData(sangpumBean);

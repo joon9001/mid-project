@@ -1,10 +1,13 @@
-<%@page import="pack.SangpumDto"%>
+<%@page import="test.SangpumDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<% String code = request.getParameter("code"); %>
+<%
+p
+ String code = request.getParameter("code")
+%>
 
-<jsp:useBean id="connP" class="pack.ConnPooling"/>
+<jsp:useBean id="g con" class="w test.ConnPooli"/>
 <!DOCTYPE html>
 <html>
 <head>
