@@ -4,10 +4,10 @@
 request.setCharacterEncoding("utf-8");
 %>
 
-<jsp:useBean id="n be" class="w test.SangpumBe" />
+<jsp:useBean id="bean" class="pack.SangpumBean" />
 <%--위에는 싱글톤이고 id는 객체 변수명이므로 SangpumBean bean = new SangpumBean()과 같다.  --%>
 <jsp:setProperty property="*" name="bean" />
-<jsp:useBean id="g con" class="w test.ConnPooli"/>
+<jsp:useBean id="connP" class="pack.ConnPooling"/>
 
 <%
 boolean b = connP.insertData(bean);

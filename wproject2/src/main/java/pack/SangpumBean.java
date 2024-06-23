@@ -1,6 +1,6 @@
 package pack;
-
-public class SangpumBean {  // 폼빈
+//dto랑 똑같으나, 역할이 다르다. 그러기에 폼빈으로 또 만들어주는것이 좋다.
+public class SangpumBean { // 폼빈역할 
 	private String code, sang, su, dan;
 
 	public String getCode() {

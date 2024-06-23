@@ -1,10 +1,11 @@
 package pack;
-
-public class ExamBean {	
-	// 클라이언트로부터 전송되는 복수 개의 값을 한 개의 그룹으로 묶어 처리하는 클래스
-	// 이런 용도의 클래스를 FormBean 이라고 부른다.
+//클라이언트로부터 전송되는 복수개의 값을 한개의 그룹으로 묶어 처리하는 클래스
+//이런 용도의 클래스를 FormBean이라 칭함.
+public class ExamBean { 
 	private String name;
-	private int kor, eng, math;
+	private int kor;
+	private int eng;
+	private int mat;
 	
 	public String getName() {
 		return name;
@@ -24,14 +25,12 @@ public class ExamBean {
 	public void setEng(int eng) {
 		this.eng = eng;
 	}
-	public int getMath() {
-		return math;
+	public int getMat() {
+		return mat;
 	}
-	public void setMath(int math) {
-		this.math = math;
+	public void setMat(int mat) {
+		this.mat = mat;
 	}
-	
-
 	
 	
 	

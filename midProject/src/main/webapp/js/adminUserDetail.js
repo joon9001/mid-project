@@ -1,0 +1,44 @@
+$(document).ready(function() {
+    // 모달을 여는 함수 정의
+    function openModal() {
+        var modal = document.getElementById("userDetailModal");
+        if (modal) {
+            modal.style.display = "block";
+
+            // 모달을 닫는 <span> 요소 가져오기
+            var span = document.getElementsByClassName("close")[0];
+
+            // 사용자가 <span> (x)를 클릭하면 모달 닫기
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // 사용자가 모달 밖의 아무 곳이나 클릭하면 모달 닫기
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        } else {
+            console.error('Modal element not found');
+        }
+    }
+
+    // adUserDetail 함수 정의
+    window.adUserDetail = function(no) {
+        // AJAX를 사용하여 데이터 전송
+        $.ajax({
+            url: 'adminUserDetail.jsp', // 데이터를 전송할 서버 URL
+            type: 'GET', // GET 방식으로 요청
+            data: { no: no }, // 전송할 데이터
+            success: function(response) {
+                // 페이지 이동이 아닌, 받은 응답을 모달에 출력
+                $('#userDetailModal .modal-content').html(response);
+                openModal(); // 모달 열기
+            },
+            error: function(status, error) {
+                console.error('ajax err : ', status, error);
+            }
+        });
+    };
+});

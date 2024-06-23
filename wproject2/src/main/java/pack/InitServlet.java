@@ -7,9 +7,8 @@ import javax.crypto.SecretKey;
 import javax.crypto.KeyGenerator;
 import java.util.Base64;
 
-@WebServlet(loadOnStartup = 1)
+@WebServlet(loadOnStartup = 1) // 다른 서블릿보다 먼저만들어진다. 그리고 비밀키만듦.
 public class InitServlet extends HttpServlet {
-	
 	public void init() throws ServletException {
 		try {
 			// 비밀 키 생성

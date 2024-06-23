@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 @Data
 public class UserBean {
-	private int no, gender, user_stat, signout_is, sign_up_date;
-	private String id, pw, uname, email;
+	private int no, gender, user_stat, signout_is;
+	private String id, pw, uname, email, sign_up_date;
 	
 }

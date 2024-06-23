@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -12,6 +13,7 @@ import javax.sql.DataSource;
 import reply.ReplyBean;
 import report.ReportBean;
 import report.ReportDTO;
+import user.UserBean;
 
 public class AdminMgr {
     private Connection conn;      // DB 연결을 관리하는 객체
@@ -163,5 +165,85 @@ public class AdminMgr {
     	return bean;
     }
     
+
+    public ArrayList<UserBean> getUserAll(){
+    	ArrayList<UserBean> list = new ArrayList<UserBean>();
+    	
+    	try {
+			conn = ds.getConnection();
+			String sql = "select * from user order by no desc";
+    		pstmt = conn.prepareStatement(sql);
+    		rs = pstmt.executeQuery();
+    		
+    		while(rs.next()) {
+    			UserBean dto = new UserBean();
+    			dto.setNo(rs.getInt("no"));
+    			dto.setId(rs.getString("id"));
+    			dto.setPw(rs.getString("pw"));
+    			dto.setUname(rs.getString("uname"));
+    			dto.setGender(rs.getInt("gender"));
+    			dto.setEmail(rs.getString("email"));
+    			dto.setSignout_is(rs.getInt("signout_is"));
+    			dto.setSign_up_date(rs.getString("sign_up_date"));
+    			list.add(dto);
+    			
+    		}
+    		
+		} catch (Exception e) {
+            System.out.println("getUserAll error : " + e);
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (pstmt != null) pstmt.close();
+                if (conn != null) conn.close();
+            } catch (Exception e) {
+                
+            }
+        }
+    	
+    	return list;
+    }
+   
+    
+    public UserBean getUser(int no) {
+		UserBean bean = null;
+		try {
+			conn = ds.getConnection();
+			String sql = "select * from user where no=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, no);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				bean = new UserBean();
+				bean.setNo(rs.getInt("no"));
+				bean.setId(rs.getString("id"));
+				bean.setPw(rs.getString("pw"));
+				bean.setUname(rs.getString("uname"));
+				bean.setEmail(rs.getString("email"));
+				bean.setGender(rs.getInt("gender"));
+				bean.setSignout_is(rs.getInt("signout_is"));
+				bean.setSign_up_date(rs.getString("sign_up_date"));
+			}
+		
+		} catch (Exception e) {
+			System.out.println("getMember err :" + e);
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e2) {
+
+			}
+		}
+		
+		return bean;
+	}
+	
+    
+   
     
 }
