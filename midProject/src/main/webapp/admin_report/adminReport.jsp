@@ -13,6 +13,7 @@
 <title>admin page(report)</title>
 <script src="https://code.jquery.com/jquery-latest.js"></script>
 <script src="../js/adminReDetail.js"></script>
+<link rel="stylesheet" href="../css/adminMain.css">
 </head>
 <body>
 <div class="container">
@@ -25,8 +26,13 @@
 	<tr>
 		<th>번호</th><th>신고자 id</th><th>신고날짜</th><th>신고코드</th><th>reported 번호</th><th>보기</th>
 	</tr>
+<%
+// 페이징 처리를 위해 페이지 번호 받기
+String pa = request.getParameter("pa");
+if(pa == null) pa= "1";
 
-	<c:forEach items="<%=adminMgr.getReportAll() %>" var="reports">
+%>
+	<c:forEach items="<%=adminMgr.getReportAll(pa) %>" var="reports">
 		 	<tr style="text-align: center;">
 		 		<td>${reports.report_no}</td>
 		 		<td>${reports.reporter_user_id}</td>
@@ -36,10 +42,28 @@
 		 		<td><a href="javascript:adReportDetail(${reports.report_reply_no})">[해당 글]</a></td>
 		 	</tr>
 	</c:forEach>
-	
-	
 </table>
 </div>
+
+<div class="pagination">    
+<% 
+adminMgr.reportTotalPage(); //전체 페이지 수 계산
+%>
+<tr>
+<td colspan="4" style="text-align: center;">
+<%
+if(adminMgr.reportTotalPage() > 0){
+	for(int pageNo=1; pageNo<= adminMgr.reportTotalPage(); pageNo++){
+%>
+<a href="adminReport.jsp?pa=<%=pageNo %>"><%=pageNo %></a>&nbsp;
+<%
+	}
+}
+%>
+</td>
+</tr>
+</div>
+
 </main>
 <%@ include file="../admin_main/admin_foot.jsp" %>
 

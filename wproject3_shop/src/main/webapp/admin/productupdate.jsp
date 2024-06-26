@@ -1,8 +1,8 @@
-<%@page import="pack.product.ProductDto"%>
+<%@page import="pack.pack.Product.ProductDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<jsp:useBean id="productMgr" class="pack.product.ProductMgr"/>
+<jsp:useBean id="r productM" class="w pack.Product.ProductM"/>
 <%
 ProductDto dto = productMgr.getProduct(request.getParameter("no"));
 %>

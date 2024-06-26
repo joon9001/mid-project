@@ -7,7 +7,7 @@
     pageEncoding="UTF-8"%>
 <jsp:useBean id="cartMgr" class="pack.order.CartMgr" scope="session" />
 <jsp:useBean id="orderMgr" class="pack.order.OrderMgr" />
-<jsp:useBean id="productMgr" class="pack.product.ProductMgr" />
+<jsp:useBean id="r productM" class="w pack.Product.ProductM" />
 
 <%
 //Hashtable hCart = cartMgr.getCartList();

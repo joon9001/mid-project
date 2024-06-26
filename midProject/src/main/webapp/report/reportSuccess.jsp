@@ -11,6 +11,6 @@ String no = request.getParameter("reply_no");
 </head>
 <body>
 <div>신고가 완료되었습니다</div>
-<input type="button" onclick="location.href='reply.jsp?reply_no='+<%=no%> %>" value="돌아가기">
+<input type="button" onclick="location.href='../reply/replydetails.jsp?reply_no=<%=no%>'" value="돌아가기">
 </body>
 </html>

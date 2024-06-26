@@ -9,8 +9,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import likefav.LikeFavDTO;
-import myReply.ReplyBean;
+
+import reply.ReplyBean;
 
 public class BookMgr {
 	private Connection conn = null;

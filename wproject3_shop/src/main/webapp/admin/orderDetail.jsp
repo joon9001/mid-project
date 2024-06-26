@@ -1,11 +1,11 @@
-<%@page import="pack.product.ProductDto"%>
+<%@page import="pack.pack.Product.ProductDto"%>
 <%@page import="pack.order.OrderMgr"%>
 <%@page import="pack.order.OrderBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<jsp:useBean id="orderMgr" class="pack.order.OrderMgr" />
-<jsp:useBean id="productMgr" class="pack.product.ProductMgr" />
+<jsp:useBean id="r orderM" class="w pack.order.OrderM" />
+<jsp:useBean id="r productM" class="w pack.Product.ProductM" />
 
 <%
 OrderBean order = orderMgr.getOrderDetail(request.getParameter("no"));

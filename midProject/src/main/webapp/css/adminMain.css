@@ -79,3 +79,32 @@ body, html {
     background-color: #ddd;
 }
 
+.pagination {
+    position: fixed;
+    bottom: 50px; /* 페이지 하단에서의 거리 */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    margin-top: 120px;
+}
+
+
+.pagination a {
+	margin: 0 5px;
+	text-decoration: none;
+	color: #000;
+}
+
+.pagination a.active {
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 4px;
+    padding: 2px 8px;
+}
+
+.pagination a.disabled {
+    color: #ccc;
+    pointer-events: none;
+}
+
+

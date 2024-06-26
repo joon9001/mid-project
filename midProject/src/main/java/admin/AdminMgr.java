@@ -1,6 +1,7 @@
 package admin;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -10,9 +11,11 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import user.UserBean;
 import reply.ReplyBean;
 import report.ReportBean;
 import report.ReportDTO;
+import test.SangpumDto;
 import user.UserBean;
 
 public class AdminMgr {
@@ -21,6 +24,10 @@ public class AdminMgr {
     private ResultSet rs;         // SQL 쿼리 결과를 담는 객체
     private DataSource ds;        // 데이터 소스, DB 연결을 위한 객체
 
+	private int recTotal = 0; //레코드 전체 갯수
+	private int pageSize = 5; // 페이지 당 출력 레코드 수
+	private int totalPage = 0; //전체 페이지 수
+	
     // 클래스 생성자
     public AdminMgr() {
         try {
@@ -91,7 +98,7 @@ public class AdminMgr {
         return res;
     }
     
-    public ArrayList<ReportBean> getReportAll(){
+    public ArrayList<ReportBean> getReportAll(String pa){
     	ArrayList<ReportBean> list = new ArrayList<ReportBean>();
     	
     	try {
@@ -100,7 +107,16 @@ public class AdminMgr {
     		pstmt = conn.prepareStatement(sql);
     		rs = pstmt.executeQuery();
     		
-    		while(rs.next()) {
+    		int startNum = (Integer.parseInt(pa)-1) * pageSize +1;
+			for(int p = 1; p<startNum; p++) {
+				rs.next(); 
+				//레코드포인터 위치 이동 pa:1(recPoint:0), pa:2(recPoint:5),  pa:3(recPoint:10)
+				
+			}
+			int i=1;
+
+			
+    		while(rs.next() && i<= pageSize) {
     			ReportBean dto = new ReportBean();
     			dto.setReport_no(rs.getInt("report_no"));
     			dto.setReporter_user_id(rs.getString("reporter_user_id"));
@@ -109,7 +125,7 @@ public class AdminMgr {
     			dto.setReported_user_no(rs.getString("reported_user_no"));
     			dto.setReport_reply_no(rs.getInt("report_reply_no"));
     			list.add(dto);
-    			
+    			i++;
     		}
     		
 		} catch (Exception e) {
@@ -166,43 +182,41 @@ public class AdminMgr {
     }
     
 
-    public ArrayList<UserBean> getUserAll(){
-    	ArrayList<UserBean> list = new ArrayList<UserBean>();
-    	
-    	try {
-			conn = ds.getConnection();
-			String sql = "select * from user order by no desc";
-    		pstmt = conn.prepareStatement(sql);
-    		rs = pstmt.executeQuery();
-    		
-    		while(rs.next()) {
-    			UserBean dto = new UserBean();
-    			dto.setNo(rs.getInt("no"));
-    			dto.setId(rs.getString("id"));
-    			dto.setPw(rs.getString("pw"));
-    			dto.setUname(rs.getString("uname"));
-    			dto.setGender(rs.getInt("gender"));
-    			dto.setEmail(rs.getString("email"));
-    			dto.setSignout_is(rs.getInt("signout_is"));
-    			dto.setSign_up_date(rs.getString("sign_up_date"));
-    			list.add(dto);
-    			
-    		}
-    		
-		} catch (Exception e) {
-            System.out.println("getUserAll error : " + e);
-        } finally {
-            try {
-                if (rs != null) rs.close();
-                if (pstmt != null) pstmt.close();
-                if (conn != null) conn.close();
-            } catch (Exception e) {
-                
-            }
-        }
-    	
-    	return list;
-    }
+//    public ArrayList<UserBean> getUserAll(){
+//    	ArrayList<UserBean> list = new ArrayList<UserBean>();
+//    	
+//    	try {
+//			conn = ds.getConnection();
+//			String sql = "select * from user order by no desc";
+//    		pstmt = conn.prepareStatement(sql);
+//    		rs = pstmt.executeQuery();
+//    			
+//    		while(rs.next()) {
+//    			UserBean dto = new UserBean();
+//    			dto.setNo(rs.getInt("no"));
+//    			dto.setId(rs.getString("id"));
+//    			dto.setPw(rs.getString("pw"));
+//    			dto.setUname(rs.getString("uname"));
+//    			dto.setGender(rs.getInt("gender"));
+//    			dto.setEmail(rs.getString("email"));
+//    			dto.setSignout_is(rs.getInt("signout_is"));
+//    			dto.setSign_up_date(rs.getString("sign_up_date"));
+//    			list.add(dto);
+//    		}
+//    		
+//		} catch (Exception e) {
+//            System.out.println("getUserAll error : " + e);
+//        } finally {
+//            try {
+//                if (rs != null) rs.close();
+//                if (pstmt != null) pstmt.close();
+//                if (conn != null) conn.close();
+//            } catch (Exception e) {
+//                
+//            }
+//        }
+//    	return list;
+//    }
    
     
     public UserBean getUser(int no) {
@@ -242,8 +256,154 @@ public class AdminMgr {
 		
 		return bean;
 	}
-	
     
+    public boolean userUpdate(UserBean userBean, String id) {
+		boolean b = false;
+		
+		try {
+			conn = ds.getConnection();
+			String sql = "update member set pw=?,uname=?,email=?,gender=?,signout_is=?,sign_up_date=?,no=? where id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userBean.getPw());
+			pstmt.setString(2, userBean.getUname());
+			pstmt.setString(3, userBean.getEmail());
+			pstmt.setInt(4, userBean.getGender());
+			pstmt.setInt(5, userBean.getSignout_is());
+			pstmt.setString(6, userBean.getSign_up_date());
+			pstmt.setInt(7, userBean.getNo());
+			pstmt.setString(8, id);
+			if(pstmt.executeUpdate() > 0) b = true;
+			
+		} catch (Exception e) {
+			System.out.println("userUpdate err :" + e);
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (pstmt != null)
+					pstmt.close();
+				if (conn != null)
+					conn.close();
+			} catch (Exception e2) {
+
+			}
+		}
+		
+		return b;
+	}
+    
+	
+    //---------------------------------------------------------------------------------------//
+    public int userTotalPage() {
+		try {
+			
+			conn = ds.getConnection();
+			String sql = "select count(*) from user";
+    		pstmt = conn.prepareStatement(sql);
+    		rs = pstmt.executeQuery();
+			
+			if(rs.next()) recTotal = rs.getInt(1); //한칸내려와보니 값이있으면 첫번째 값을 recTotal에게 넘겨준다
+			
+			//전체 페이지 수 구하기
+			totalPage = recTotal / pageSize;
+			if(recTotal % pageSize != 0) totalPage += 1; // 자투리 계산 
+			System.out.println("전체 페이지 수: "+ totalPage);
+			
+		} catch (Exception e) {
+			System.out.println("userTotalPage err:"+ e);
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return totalPage;
+		
+	}
    
+    public int reportTotalPage() {
+		try {
+			
+			conn = ds.getConnection();
+			String sql = "select count(*) from report";
+    		pstmt = conn.prepareStatement(sql);
+    		rs = pstmt.executeQuery();
+			
+			if(rs.next()) recTotal = rs.getInt(1); //한칸내려와보니 값이있으면 첫번째 값을 recTotal에게 넘겨준다
+			
+			//전체 페이지 수 구하기
+			totalPage = recTotal / pageSize;
+			if(recTotal % pageSize != 0) totalPage += 1; // 자투리 계산 
+			System.out.println("전체 페이지 수: "+ totalPage);
+			
+		} catch (Exception e) {
+			System.out.println("reportTotalPage err:"+ e);
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		return totalPage;
+		
+	}
+    
+    
+	public ArrayList<UserBean> getUserAll(String pa){
+		//System.out.println("pa:"+pa);
+		
+		ArrayList<UserBean> list = new ArrayList<UserBean>();
+		try {
+			conn = ds.getConnection();
+			String sql = "select * from user order by no desc";
+    		pstmt = conn.prepareStatement(sql);
+    		rs = pstmt.executeQuery();
+			
+			
+			
+			int startNum = (Integer.parseInt(pa)-1) * pageSize +1;
+			for(int p = 1; p<startNum; p++) {
+				rs.next(); 
+				//레코드포인터 위치 이동 pa:1(recPoint:0), pa:2(recPoint:5),  pa:3(recPoint:10)
+				
+			}
+			int i=1;
+			
+			while(rs.next() && i<= pageSize) {
+    			UserBean dto = new UserBean();
+    			dto.setNo(rs.getInt("no"));
+    			dto.setId(rs.getString("id"));
+    			dto.setPw(rs.getString("pw"));
+    			dto.setUname(rs.getString("uname"));
+    			dto.setGender(rs.getInt("gender"));
+    			dto.setEmail(rs.getString("email"));
+    			dto.setSignout_is(rs.getInt("signout_is"));
+    			dto.setSign_up_date(rs.getString("sign_up_date"));
+    			list.add(dto);
+    			i++;
+    		}
+		} catch (Exception e) {
+			System.out.println("getDataAll err:"+ e);
+		}finally {
+			try {
+				if(rs != null) rs.close();
+				if(pstmt != null) pstmt.close();
+				if(conn != null) conn.close();
+			} catch (Exception e2) {
+				// TODO: handle exception
+			}
+		}
+		
+		return list;
+	}
+	
+	
+	
     
 }

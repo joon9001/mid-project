@@ -4,9 +4,9 @@
 <%
 request.setCharacterEncoding("utf-8");    
 %>
-<jsp:useBean id="mbean" class="pack.user.MemberBean"/>    
+<jsp:useBean id="mbean" class="pack.member.MemberBean"/>    
 <jsp:setProperty property="*" name="mbean"/>
-<jsp:useBean id="memberMgr" class="pack.user.MemberMgr"/>
+<jsp:useBean id="memberMgr" class="pack.member.MemberMgr"/>
 <%
 boolean b = memberMgr.memberInsert(mbean);
 %>

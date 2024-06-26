@@ -23,10 +23,10 @@
             });
 
             recognition.addEventListener("result", (e) => {
-                const searchConsole = document.getElementById("search_console");
+                const searchConsole = document.querySelectorAll (".search_txt");
                 searchConsole.value = e.results[0][0].transcript;
                 console.log("인식된 텍스트: ", searchConsole.value);
-            });
+            });  
         }
 
         function startRecord() {

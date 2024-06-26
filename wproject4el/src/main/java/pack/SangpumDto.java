@@ -1,5 +1,5 @@
 package pack;
-
+// DTO
 public class SangpumDto {
 	private String code, sang, su, dan;
 
@@ -34,7 +34,5 @@ public class SangpumDto {
 	public void setDan(String dan) {
 		this.dan = dan;
 	}
-	
-	
 	
 }

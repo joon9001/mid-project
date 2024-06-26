@@ -1,15 +1,15 @@
-<%@page import="user.UserBean"%>
+<%@page import="pack.member.MemberBean"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<jsp:useBean id="memberMgr" class="pack.user.MemberMgr" />
+<jsp:useBean id="memberMgr" class="pack.member.MemberMgr" />
 
 <%
 request.setCharacterEncoding("utf-8");
 String id = request.getParameter("id");
 //out.print(id);
 
-UserBean bean = memberMgr.getMember(id);
+MemberBean bean = memberMgr.getMember(id); 
 %>
 <!DOCTYPE html>
 <html>
@@ -101,8 +101,3 @@ window.onload = function(){
 </form>
 </body>
 </html>
-
-
-
-
-

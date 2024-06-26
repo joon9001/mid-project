@@ -95,7 +95,7 @@ map.put("today", new Date());
 <br>
 * 배열 생성 후 출력 <br>
 <c:set var="arr" value="<%=new int[]{1,2,3,4,5} %>"></c:set>
-<c:forEach var="a" items="${arr }" begin="2" end="4" step="1">
+<c:forEach var="a" items="${arr}" begin="2" end="4" step="1">
 	${a}&nbsp;
 </c:forEach>
 <br>
@@ -103,17 +103,16 @@ map.put("today", new Date());
 <c:forTokens var="animal" items="cat,dog,bunny*pig,dolpin" delims=",*">
 동물 : ${animal }&nbsp;
 </c:forTokens>
-
 <hr>
 ** 숫자 및 날짜 서식 ** <br><!-- 아무데서나 선언해주면 된다. -->
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-숫자 : <fmt:formatNumber value="12345.678" type="number"/><br>
-숫자 : <fmt:formatNumber value="12345.678" type="number" pattern="#,##0"/><br>
-숫자 : <fmt:formatNumber value="12345.678" type="currency"/><br>
-숫자 : <fmt:formatNumber value="0.123" type="percent" /><br>
-숫자 : <fmt:formatNumber value="12345.678" pattern="#,##0.0"/><br>
-숫자 : <fmt:formatNumber value="12345.678" pattern="0,000.0" /><br>
-숫자 : <fmt:formatNumber value="12" pattern="0,000.0" /><br>
+숫자1 : <fmt:formatNumber value="12345.678" type="number"/><br>
+숫자2 : <fmt:formatNumber value="12345.678" type="number" pattern="#,##0"/><br>
+숫자+ : <fmt:formatNumber value="12345.678" type="currency"/><br>
+숫자++ : <fmt:formatNumber value="12345.678" type="percent"/><br>
+숫자3 : <fmt:formatNumber value="12345.678" pattern="#,##0.0"/><br>
+숫자4 : <fmt:formatNumber value="12345.678" pattern="0,000.0" /><br>
+숫자5 : <fmt:formatNumber value="12" pattern="0,000.0" /><br>
 <br>
 <c:set var="now" value="<%=new Date() %>"></c:set>
 날짜: <fmt:formatDate value="${now }" type="date"/><br>

@@ -1,8 +1,10 @@
 package db;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -40,7 +42,7 @@ public class CSVToDatabase {
         String insertSQL = "INSERT INTO book (bnum, title, author, publisher, pyear, thumb_nail) VALUES (?, ?, ?, ?, ?, ?)";
         int bnum = 1; // bnum 시작 값
 
-        try (BufferedReader br = new BufferedReader(new FileReader(csvFilePath, StandardCharsets.UTF_8))) {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(csvFilePath), StandardCharsets.UTF_8))) {
             String line;
             int lineNumber = 0;
 

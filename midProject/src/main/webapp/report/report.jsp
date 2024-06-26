@@ -1,8 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<jsp:useBean id="replyBean" class="reply.ReplyBean"/>
 <!-- 로그인 된 유저만 신고가 가능하다.즉  -->
 <%
-String id = request.getParameter("id"); // 아이디 유무
+String id = "aa";
+//String id = request.getParameter("id"); // 아이디 유무
+int reply_no = Integer.parseInt(request.getParameter("reply_no")); //신고할 리뷰 번호
+
+
+//int reply_no = Integer.parseInt(request.getParameter("reply_no")); //앞단에서 연결
+//https://step-by-step-noah.tistory.com/84 모달
+//https://zinisang.tistory.com/97 모달
+
 //hidden 값
 /*로그인 어떻게.? 탑에서 token 유지하고 있나?
 로그인
@@ -23,16 +32,16 @@ if( id != null){
 <h2>신고유형</h2>
 <form action="saveReport.jsp" name="frm" method="post">
 	<div class="select">
-	   <input type="radio" name="cbRep" id="cbRepo1" value="1"><label for="cbRepo1"> 불쾌한 표현 사용</label><br>
-	   <input type="radio" name="cbRep" id="cbRepo2" value="2"><label for="cbRepo2"> 관련없는 리뷰</label><br>
-	   <input type="radio" name="cbRep" id="cbRepo3" value="3"><label for="cbRepo3"> 스팸/홍보 글</label><br>
-	   <input type="radio" name="cbRep" id="cbRepo4" value="4"><label for="cbRepo4"> 음란물</label><br>
-	   <input type="radio" name="cbRep" id="cbRepo5" value="5"><label for="cbRepo5"> 청소년에게 유해한 내용</label><br>
+	   <input type="radio" name="report_code" id="cbRepo1" value="1"><label for="cbRepo1"> 불쾌한 표현 사용</label><br>
+	   <input type="radio" name="report_code" id="cbRepo2" value="2"><label for="cbRepo2"> 관련없는 리뷰</label><br>
+	   <input type="radio" name="report_code" id="cbRepo3" value="3"><label for="cbRepo3"> 스팸/홍보 글</label><br>
+	   <input type="radio" name="report_code" id="cbRepo4" value="4"><label for="cbRepo4"> 음란물</label><br>
+	   <input type="radio" name="report_code" id="cbRepo5" value="5"><label for="cbRepo5"> 청소년에게 유해한 내용</label><br>
 	   <div class="repo">
 		   <input type="button" value="신고하기" class="btn btn-outline-danger" onclick="report(this.form)">
-		   <input type="hidden" name="cbRep">
-		   <input type="hidden" name="reply_no" value="4"> <!-- 예시: 리뷰 번호 -->
-		   <input type="hidden" name="reporter_user_id" value="user123"> <!-- 예시: 신고자 아이디 -->
+		   <input type="hidden" name="report_reply_no" value="<%=reply_no%>"> <!-- 예시: 리뷰 번호 -->
+		   <input type="hidden" name="reporter_user_id" value="<%=id%>"> <!-- 예시: 신고자 아이디 -->
+		   <input type="hidden" name="replyBean" value="<%=replyBean%>">
 	   </div>
 	</div>
 </form>
