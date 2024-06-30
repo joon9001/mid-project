@@ -27,23 +27,72 @@ public class ProcessDao implements Processinter{
 		return list;
 	}
 	@Override
-	public DataDto selectPart(String para) {
-		// TODO Auto-generated method stub
-		return null;
+	public DataDto selectPart(String id) {
+		SqlSession sqlSession = factory.openSession();
+		DataDto dto = null;
+		
+		try {
+			dto = sqlSession.selectOne("selectPart", id);
+		} catch (Exception e) {
+			System.out.println("selectPart err: "+e);
+		}finally {
+			if(sqlSession != null) sqlSession.close();
+		}
+		return dto;
 	}
 	@Override
 	public boolean insertData(DataFormBean form) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean b = false;
+		SqlSession sqlSession = factory.openSession();
+		try {
+			if(sqlSession.insert("insertData", form) > 0) b = true;
+			sqlSession.commit();
+		} catch (Exception e) {
+			System.out.println("insertData err :" + e);
+			sqlSession.rollback();
+		} finally {
+			if(sqlSession != null) sqlSession.close();
+		}
+		
+		return b;
 	}
 	@Override
 	public boolean updateData(DataFormBean form) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean b = false;
+		SqlSession sqlSession = factory.openSession();
+		try {
+			//비밀번호 비교 후 수정 여부 판단
+			DataDto dto = selectPart(form.getId());
+			
+			if(dto.getPasswd().equals(form.getPasswd())) {
+				//수정 처리 
+				if(sqlSession.update("updateData", form) > 0) {
+					b = true;
+					sqlSession.commit();
+				}
+			}
+		} catch (Exception e) {
+			System.out.println("updateData err :" + e);
+			sqlSession.rollback();
+		} finally {
+			if(sqlSession != null) sqlSession.close();
+		}
+		return b;
 	}
 	@Override
 	public boolean deleteData(String id) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean b = false;
+		SqlSession sqlSession = factory.openSession();
+		try {
+			int cou = sqlSession.delete("deleteData", id);
+			if(cou > 0) b = true;
+			sqlSession.commit();
+		} catch (Exception e) {
+			System.out.println("deleteData err :" + e);
+			sqlSession.rollback();
+		} finally {
+			if(sqlSession != null) sqlSession.close();
+		}
+		return b;
 	}
 }

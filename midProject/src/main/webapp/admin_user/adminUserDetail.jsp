@@ -13,7 +13,9 @@ try {
         // no 변수로 추가 로직 처리
         UserBean user = adminMgr.getUser(no);
         request.setAttribute("user", user);
-       // out.println("user");
+        //user 객체를 요청(request) 속성에 저장함으로써 JSP 페이지에서 Java 객체를 사용할 수 있다.
+        // 아래 html 코드에서 ${user.no}와 같이 EL 출력 구문에 사용가능하다.
+       
     } else {
         out.println("No parameter is missing or empty");
     }
@@ -22,16 +24,6 @@ try {
 }
 %>
 
-<%--
-<%
-request.setCharacterEncoding("utf-8");
-int no = Integer.parseInt(request.getParameter("no"));
-UserBean user = adminMgr.getUser(no);
-request.setAttribute("user", user);
-out.println("user");
-%>
-
---%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,32 +54,10 @@ out.println("user");
 		<br>
 			<div>
 			<br>
-			<button id="btnUpdate" class="btn">수정</button>
-			<button id="btnDelete" class="btn">삭제</button>
+		
 		</div>
+			<%--#userDetailModal 요소에 display: none; 스타일을 설정해서 초기에는 모달 창이 보이지 않도록 함--%>
 			
-			  <div id="userDetailModal" class="modal2" style="display:none;">
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h3>회원 정보 수정</h3>
-                    <form id="updateForm" action="adminUser.jsp">>
-                        <input type="hidden" name="no" value="${user.no}">
-                        <label for="id">아이디:</label>
-                        <input type="text" id="id" name="id" value="${user.id}" readonly><br><br>
-                        <label for="pw">비밀번호:</label>
-                        <input type="password" id="pw" name="pw" value="${user.pw}"><br><br>
-                        <label for="uname">이름:</label>
-                        <input type="text" id="uname" name="uname" value="${user.uname}"><br><br>
-                        <label for="email">이메일:</label>
-                        <input type="text" id="email" name="email" value="${user.email}"><br><br>
-                        <label for="gender">성별:</label>
-                        <input type="text" id="gender" name="gender" value="${user.gender}"><br><br>
-                        <label for="signout_is">탈퇴 여부:</label>
-                        <input type="text" id="signout_is" name="signout_is" value="${user.signout_is}"><br><br>
-                        <button type="submit">저장</button>
-                    </form>
-                </div>
-            </div>
 			
 			
 			</div>

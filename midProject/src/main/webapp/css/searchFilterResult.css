@@ -4,7 +4,7 @@
     margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background-color: rgb(255,248,220);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -39,8 +39,8 @@ h1 {
 
 .search-form button {
     padding: 10px;
-    background-color: #007bff;
-    color: white;
+    background-color: rgba(244, 162, 11, 1);
+    color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -49,7 +49,7 @@ h1 {
 }
 
 .search-form button:hover {
-    background-color: #0056b3;
+    background-color: rgb(255, 255, 0);
 }
 
 /* 결과 영역 스타일 */
@@ -69,7 +69,7 @@ h1 {
 }
 
 .results th {
-    background-color: #007bff;
+    background-color:rgba(148, 83, 30, 1);
     color: white;
 }
 

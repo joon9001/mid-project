@@ -9,7 +9,7 @@
 <jsp:useBean id="bookMgr" class="book.BookMgr" />
 
 <%
-int reply_book_no = 12233485; //책번호(haha.jpg) (넘어오는 값)
+int reply_book_no = Integer.parseInt(request.getParameter("reply_book_no")); //책번호(haha.jpg) (넘어오는 값)
 String reply_id = "aa";
 //String id = request.getParameter("id"); //세션?
 //int bno = Integer.parseInt(request.getParameter("bnum")); //넘겨받는값
@@ -29,7 +29,7 @@ BookDTO bookdto = bookMgr.getBook(reply_book_no);//해당 번호의 책정보 �
 	<h2>책 상세 정보 출력</h2>
 	<!-- 책정보 start -->
 	<div class="book">
-		<img src="../images/book.jpg">
+		<img src="../image/book.jpg">
 		<button class="zbtn" type="button"
 			onclick="location.href='../likeFav/likeFavproc.jsp?reply_book_no=<%=reply_book_no%>'">찜버튼</button>
 		<!-- 연결링크맞는지확인!! -->

@@ -181,42 +181,6 @@ public class AdminMgr {
     	return bean;
     }
     
-
-//    public ArrayList<UserBean> getUserAll(){
-//    	ArrayList<UserBean> list = new ArrayList<UserBean>();
-//    	
-//    	try {
-//			conn = ds.getConnection();
-//			String sql = "select * from user order by no desc";
-//    		pstmt = conn.prepareStatement(sql);
-//    		rs = pstmt.executeQuery();
-//    			
-//    		while(rs.next()) {
-//    			UserBean dto = new UserBean();
-//    			dto.setNo(rs.getInt("no"));
-//    			dto.setId(rs.getString("id"));
-//    			dto.setPw(rs.getString("pw"));
-//    			dto.setUname(rs.getString("uname"));
-//    			dto.setGender(rs.getInt("gender"));
-//    			dto.setEmail(rs.getString("email"));
-//    			dto.setSignout_is(rs.getInt("signout_is"));
-//    			dto.setSign_up_date(rs.getString("sign_up_date"));
-//    			list.add(dto);
-//    		}
-//    		
-//		} catch (Exception e) {
-//            System.out.println("getUserAll error : " + e);
-//        } finally {
-//            try {
-//                if (rs != null) rs.close();
-//                if (pstmt != null) pstmt.close();
-//                if (conn != null) conn.close();
-//            } catch (Exception e) {
-//                
-//            }
-//        }
-//    	return list;
-//    }
    
     
     public UserBean getUser(int no) {

@@ -7,7 +7,7 @@ public class BookDTO {
 	public int getBnum() {
 		return bnum;
 	}
-	public void setBnum(int bum) {
+	public void setBnum(int bnum) {
 		this.bnum = bnum;
 	}
 	public String getTitle() {

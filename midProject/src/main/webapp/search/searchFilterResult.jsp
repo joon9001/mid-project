@@ -14,15 +14,17 @@
 
 <body>
    <div class="container">
-        <h1>검색 결과</h1>
+        <h1>상세 검색</h1>
         <hr>
  <form class="search-form" id="searchForm">
+ 			<label for="bnum">번호:</label> <input type="text" id="bnum" name="bnum">
             <label for="name">제목:</label> <input type="text" id="title" name="title">
             <label for="author">작가:</label> <input type="text" id="author" name="author">
             <label for="publisher">출판사:</label> <input type="text" id="publisher" name="publisher">
             <label for="issueDate">출판일:</label> <input type="text" id="pyear" name="pyear">
+            
             <br>
-            <button type="button" onclick="performSearch()">Search</button>
+            <button type="button" onclick="performSearch()">검색하기</button>
             <br>
             <br>
         </form>

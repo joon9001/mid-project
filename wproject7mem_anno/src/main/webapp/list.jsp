@@ -30,7 +30,7 @@
 	<c:forEach var="m" items="<%=list %>">
 		<tr>
 			<td><a href="del.jsp?id=${m.id}">${m.id}</a></td>
-			<td><a href="del.jsp?id=${m.name}">${m.name}</a></td>
+			<td><a href="up.jsp?id=${m.id}">${m.name}</a></td>
 			<td>${m.passwd}</td>
 			<td>${fn:substring(m.reg_date,0,10)}</td>
 		</tr>

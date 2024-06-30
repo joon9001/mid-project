@@ -31,17 +31,21 @@ public class searchBookDB {
         	
             conn = ds.getConnection();
             StringBuilder sql = new StringBuilder("SELECT * FROM book WHERE title LIKE ?");
-          
+            
             pstmt = conn.prepareStatement(sql.toString());
+            
             pstmt.setString(1, "%" + title + "%");
+          
            
 
-
             rs = pstmt.executeQuery();
-            
+           
             while (rs.next()) {
             	BookDTO book = new BookDTO();
                 book.setTitle(rs.getString("title"));
+                book.setAuthor(rs.getString("author"));
+                book.setPublisher(rs.getString("publisher"));
+                book.setPyear(rs.getInt("pyear"));
                 result2.add(book);
             }
         } catch (Exception e) {
@@ -55,7 +59,7 @@ public class searchBookDB {
                 System.out.println("자원 해제 실패: " + e);
             }
         }
-        System.out.println("searchBookDB에서 보내는 result2: " + result2);
+    
         return result2;
     }
 }

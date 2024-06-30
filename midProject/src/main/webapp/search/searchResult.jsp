@@ -9,28 +9,15 @@
 <jsp:useBean id="searchBookDB" class="search.searchBookDB" />
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../js/searchBook.js"></script>
-
-
-
+<script src="../js/searchBookFinal.js"></script>
+<link rel="stylesheet" href="../css/searchResult.css">
 </head>
 
 <body>
 
-   <div class="container">
-        <h1>검색 결과</h1>
-        <hr>
- <form class="search-form" id="searchForm">
-            <label for="name">제목:</label> <input type="text" id="title" name="title">
-            <br>
-            <button type="button" onclick="performSearch()">Search</button>
-            <br>
-            <br>
-        </form>
-          <div class="results" id="results">
-            <!-- 검색 결과가 여기에 표시됩니다. -->
-        </div>
-           </div>
-      
+ <div id="results" class="results-container"></div>
+
+  
  
 </body>
 </html>
