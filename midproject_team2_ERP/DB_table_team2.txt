@@ -1,0 +1,129 @@
+CREATE TABLE project.admin (
+  admin_id varchar(20) NOT NULL,
+  admin_passwd varchar(30) NOT NULL,
+  admin_teamcode varchar(3) NOT NULL,
+  PRIMARY KEY (admin_id)
+);
+
+CREATE TABLE project.coach (
+  coach_code int(11) NOT NULL AUTO_INCREMENT,
+  coach_teamcode varchar(3) NOT NULL,
+  coach_name varchar(10) NOT NULL,
+  coach_pos varchar(10) NOT NULL,
+  coach_lic varchar(20) NOT NULL,
+  coach_ibdan date DEFAULT NULL,
+  PRIMARY KEY (coach_code)
+);
+
+CREATE TABLE project.expend (
+  expend_code int(11) NOT NULL AUTO_INCREMENT,
+  expend_teamcode varchar(3) NOT NULL,
+  expend_date date NOT NULL,
+  expend_pybuy int(11) DEFAULT 0,
+  expend_trans int(11) DEFAULT 0,
+  expend_eat int(11) DEFAULT 0,
+  expend_maintain int(11) DEFAULT 0,
+  expend_cosalary int(11) DEFAULT 0,
+  expend_hcsalary int(11) DEFAULT 0,
+  expend_stsalary int(11) DEFAULT 0,
+  expend_training int(11) DEFAULT 0,
+  expend_mkting int(11) DEFAULT 0,
+  expend_briefs varchar(30) DEFAULT NULL,
+  PRIMARY KEY (expend_code)
+);
+
+CREATE TABLE project.game (
+  game_code int(11) NOT NULL AUTO_INCREMENT,
+  game_home varchar(3) NOT NULL,
+  game_away varchar(3) NOT NULL,
+  game_date date NOT NULL,
+  game_homesc int(11) NOT NULL,
+  game_awaysc int(11) NOT NULL,
+  game_stadium varchar(255) NOT NULL,
+  game_poss double NOT NULL,
+  game_sot double NOT NULL,
+  game_tac double NOT NULL,
+  PRIMARY KEY (game_code)
+);
+
+CREATE TABLE project.income (
+  income_code int(11) NOT NULL AUTO_INCREMENT,
+  income_teamcode varchar(3) NOT NULL,
+  income_date date NOT NULL,
+  income_ticket int(11) DEFAULT 0,
+  income_goods int(11) DEFAULT 0,
+  income_fan int(11) DEFAULT 0,
+  income_broad int(11) DEFAULT 0,
+  income_spon int(11) DEFAULT 0,
+  income_ad int(11) DEFAULT 0,
+  income_rent int(11) DEFAULT 0,
+  income_loan int(11) DEFAULT 0,
+  income_pysell int(11) DEFAULT 0,
+  income_briefs varchar(30) DEFAULT NULL,
+  PRIMARY KEY (income_code)
+);
+
+CREATE TABLE project.injury (
+  injury_bn int(11) NOT NULL,
+  injury_part varchar(20) NOT NULL,
+  injury_state varchar(30) NOT NULL,
+  injury_date date NOT NULL,
+  injury_doctor varchar(30) NOT NULL,
+  injury_code int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (injury_code)
+);
+
+CREATE TABLE project.member (
+  member_name varchar(20) NOT NULL,
+  member_birth date NOT NULL,
+  member_email varchar(50) NOT NULL,
+  member_id varchar(20) NOT NULL,
+  member_passwd varchar(30) NOT NULL,
+  member_teamcode varchar(3) NOT NULL,
+  PRIMARY KEY (member_id)
+);
+
+CREATE TABLE project.player (
+  player_bn int(11) NOT NULL AUTO_INCREMENT,
+  player_name varchar(10) NOT NULL,
+  player_teamcode varchar(3) NOT NULL,
+  player_birth date NOT NULL,
+  player_pos varchar(10) NOT NULL,
+  player_nation varchar(10) NOT NULL,
+  player_pot varchar(10) DEFAULT NULL,
+  player_cts date NOT NULL,
+  player_cte date NOT NULL,
+  player_deb date NOT NULL,
+  PRIMARY KEY (player_bn)
+);
+
+CREATE TABLE project.staff (
+  staff_code int(11) NOT NULL AUTO_INCREMENT,
+  staff_name varchar(10) NOT NULL,
+  staff_teamcode varchar(3) NOT NULL,
+  staff_nation varchar(10) NOT NULL,
+  staff_role varchar(30) NOT NULL,
+  staff_ibdan date NOT NULL,
+  PRIMARY KEY (staff_code)
+);
+
+CREATE TABLE project.stat (
+  stat_code int(11) NOT NULL AUTO_INCREMENT,
+  stat_bn int(11) NOT NULL,
+  stat_season date NOT NULL,
+  stat_match int(11) DEFAULT 0,
+  stat_goal int(11) DEFAULT 0,
+  stat_as int(11) DEFAULT 0,
+  stat_yellow int(11) DEFAULT 0,
+  stat_red int(11) DEFAULT 0,
+  PRIMARY KEY (stat_code)
+);
+
+CREATE TABLE project.team (
+  team_code varchar(3) NOT NULL,
+  team_name varchar(30) NOT NULL,
+  team_ht varchar(30) NOT NULL,
+  team_fdd date NOT NULL,
+  team_stadium varchar(30) NOT NULL,
+  PRIMARY KEY (team_code)
+);
