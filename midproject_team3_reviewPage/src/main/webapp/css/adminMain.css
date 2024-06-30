@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 60px 1fr 30px;
+    grid-template-columns: 200px 1fr;
+    grid-template-areas:
+        "header header"
+        "sidebar main-content"
+        "footer footer";
+    height: 100%;
+}
+
+.header {
+    grid-area: header;
+    background-color: #ddd;
+    display: flex;
+    justify-content: space-between;
+}
+
+.home{
+	padding : 7px;
+	margin-left: 3px;
+}
+
+.logout{
+	color: black;
+	text-decoration: none;
+	padding-right: 20px;
+	padding-top: 15px;
+}
+
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ccc;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar li {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.sidebar a{
+	text-decoration-line: none;
+	color: black;
+}
+
+.main-content {
+    grid-area: main-content;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.table {
+    width: 100%;
+    margin-top: 30px;
+}
+
+.table th{
+	padding: 10px;
+}
+
+.table td{
+	padding: 10px;
+}
+
+.table a{
+	text-decoration-line: none;
+	color: black;
+}
+
+.page {
+    display: none;
+}
+
+.footer {
+    grid-area: footer;
+    background-color: #ddd;
+}
+
+.pagination {
+    position: fixed;
+    bottom: 50px; /* 페이지 하단에서의 거리 */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    margin-top: 120px;
+}
+
+
+.pagination a {
+	margin: 0 5px;
+	text-decoration: none;
+	color: #000;
+}
+
+.pagination a.active {
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 4px;
+    padding: 2px 8px;
+}
+
+.pagination a.disabled {
+    color: #ccc;
+    pointer-events: none;
+}
+
+.dash1{
+	display: flex;
+	justify-content: space-between;
+}
+
+.dashRe{
+	width: 40%;
+	height: 200px;
+	margin-right: 50px;
+	margin-top: 14px;
+}
+
+.dashRe a{
+	text-decoration: none;
+	color: black;
+}
+
+.dashRe th{
+	font-size: 14px;
+}
+
+.dashRe td{
+	padding: 7px;
+	padding-top: 11px;
+}
+
+

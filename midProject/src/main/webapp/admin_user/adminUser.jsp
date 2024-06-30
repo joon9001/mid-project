@@ -34,7 +34,7 @@
 <table style="width:90%;">
 <tr>
 <td>번호</td><td>유저 id</td><td>보기</td>
-</tr>
+</tr>1
 <%
 // 페이징 처리를 위해 페이지 번호 받기
 String pa = request.getParameter("pa");
